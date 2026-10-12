@@ -1,0 +1,216 @@
+make clean all
+make[1]: Entering directory '/mnt/data/HX89_MONOLITH_FINAL'
+rm -rf build thesis/build
+rm -f bin/hx89 bin/hx0-x86_64 bin/pulse-pcm bin/hx89-gas bin/byte-polyform bin/hx89-chiral-proof frame.ppm hx89.state hx89.regen
+rm -f evidence/*.actual evidence/*.sha256 evidence/*.txt evidence/*.o evidence/*.ppm evidence/*.state evidence/*.regen
+rm -f research/crtc/paper/*.aux research/crtc/paper/*.log research/crtc/paper/*.out research/crtc/paper/*.toc
+rm -f dist/*.pdf
+mkdir -p build
+as -o build/hx0-x86_64.o boot/x86_64/hx0.S
+mkdir -p bin
+ld -o bin/hx0-x86_64 build/hx0-x86_64.o
+mkdir -p bin
+cc -std=c11 -O2 -Wall -Wextra -Werror -o bin/pulse-pcm src/pulse_pcm.c
+mkdir -p build
+as -o build/hx0_bitstream.o boot/hx0_bitstream.S
+objcopy -O binary -j .rodata build/hx0_bitstream.o build/hx0_bitstream.hx0
+cmp build/hx0_bitstream.hx0 seeds/hx0_bitstream.hx0
+mkdir -p build
+./bin/hx0-x86_64 build/hx0_bitstream.hx0 < seeds/hx89_seed.bits > build/hx87_seed.stageA
+cmp build/hx87_seed.stageA seeds/hx87_seed.hx
+./bin/hx0-x86_64 build/hx0_bitstream.hx0 < seeds/hx89_semantics.bits > build/hx87_semantics.seed
+cmp build/hx87_semantics.seed seeds/hx87_semantics.seed
+./bin/hx0-x86_64 seeds/hx0_etch.hx0 < seeds/hx87_seed.etch > build/hx87_seed.etchdecoded
+cmp build/hx87_seed.etchdecoded build/hx87_seed.stageA
+./bin/hx0-x86_64 seeds/hx0_etch.hx0 < seeds/hx87_semantics.etch > build/hx87_semantics.etchdecoded
+cmp build/hx87_semantics.etchdecoded build/hx87_semantics.seed
+./bin/pulse-pcm encode-fsk seeds/hx89_seed.bits build/hx89_seed.fsk.wav
+./bin/pulse-pcm decode-fsk build/hx89_seed.fsk.wav build/hx89_seed.fsk.bits
+./bin/hx0-x86_64 build/hx0_bitstream.hx0 < build/hx89_seed.fsk.bits > build/hx87_seed.fskdecoded
+cmp build/hx87_seed.fskdecoded build/hx87_seed.stageA
+./bin/pulse-pcm encode-fsk seeds/hx89_semantics.bits build/hx89_semantics.fsk.wav
+./bin/pulse-pcm decode-fsk build/hx89_semantics.fsk.wav build/hx89_semantics.fsk.bits
+./bin/hx0-x86_64 build/hx0_bitstream.hx0 < build/hx89_semantics.fsk.bits > build/hx87_semantics.fskdecoded
+cmp build/hx87_semantics.fskdecoded build/hx87_semantics.seed
+./bin/pulse-pcm encode-bell202 seeds/hx89_seed.bits build/hx89_seed.bell.wav
+./bin/pulse-pcm decode-bell202 build/hx89_seed.bell.wav build/hx89_seed.bell.bits
+./bin/hx0-x86_64 build/hx0_bitstream.hx0 < build/hx89_seed.bell.bits > build/hx87_seed.belldecoded
+cmp build/hx87_seed.belldecoded build/hx87_seed.stageA
+./bin/pulse-pcm encode-bell202 seeds/hx89_semantics.bits build/hx89_semantics.bell.wav
+./bin/pulse-pcm decode-bell202 build/hx89_semantics.bell.wav build/hx89_semantics.bell.bits
+./bin/hx0-x86_64 build/hx0_bitstream.hx0 < build/hx89_semantics.bell.bits > build/hx87_semantics.belldecoded
+cmp build/hx87_semantics.belldecoded build/hx87_semantics.seed
+printf 'HX89_BOOTSTRAP_VERIFIED\n' > build/bootstrap.stamp
+mkdir -p build
+cc -c -o build/hx89_x86_64.o src/hx89_x86_64.S
+mkdir -p bin
+cc -O2 -Wall -Wextra -Wl,-z,relro,-z,now,-z,noexecstack -no-pie -o bin/hx89 build/hx89_x86_64.o
+mkdir -p bin
+cc -std=c11 -O2 -Wall -Wextra -Werror -o bin/hx89-gas src/hex_gas.c
+mkdir -p bin
+cc -std=c11 -O2 -Wall -Wextra -Werror -o bin/byte-polyform src/byte_polyform.c
+mkdir -p bin
+cc -std=c11 -O3 -Wall -Wextra -Werror -o bin/hx89-chiral-proof src/chiral_law.c
+make[1]: Leaving directory '/mnt/data/HX89_MONOLITH_FINAL'
+make sanitize
+make[1]: Entering directory '/mnt/data/HX89_MONOLITH_FINAL'
+sh tests/sanitize.sh
+BYTE_POLYFORM payload=256 cells=257 status=PASS
+BYTE_POLYFORM payload=4095 cells=4096 status=PASS
+CHIRAL_LAW_PASS local_states=64 global_states=262144 mirror_chirality=PASS theta_involution=PASS dressed_PT_reversor=PASS echo=PASS correlation_reciprocity=NOT_CHECKED_NONINVARIANT_SAMPLE both_chiralities=PASS
+LOCAL 64/64 bijective mass/momentum conserved, C6 rotationally covariant
+GAS size=128x128 steps=100 mass=27580 px=118 py=100 collisions=116405 final=21bb06d5533c86de reverse=PASS
+PASS: ASan/UBSan byte compiler, 2^18-state chiral prover sample, 128x128x100 gas and canonical Bell codec
+make[1]: Leaving directory '/mnt/data/HX89_MONOLITH_FINAL'
+make audit
+make[1]: Entering directory '/mnt/data/HX89_MONOLITH_FINAL'
+sh tests/release_evidence.sh
+PASS: HX0 ETCH fixed point
+PASS: memory echo and one-bit HX0 machine reconstruction
+PASS: PCM waveform to one-bit HX0 to live semantic image
+PASS: independent Bell 202 waveform, 1200 baud UART, start sync, CRC and noisy channel
+PASS: level, 125-baud FSK, Bell 202 and memory echo converge on canonical HX0 images
+PASS: independent hex-gas conservation/reverse and image Polyform through Bell, HX0 and HX89
+PASS: semantic right inverse for byte alphabet, Bell/HX0 transport, determinism and arena boundaries
+PASS: chiral reciprocity, dressed PT reversor, exact echo/correlation law, only 3 one-body linear invariants, independent larger-torus oracle
+PASS: exact transport-circle and spectral identities over 3575 rational (rho,p,B) points in Q(sqrt(3))
+PASS: entropy sparse-field regression seed=12345
+PASS: all 10 signed five-axis entropy exits terminate on explicit HALT cells
+PASS: HX0 decodes canonical HX87 seed and semantic image
+PASS: HX87 Seed B == Seed C fixed point
+PASS: extension-agnostic Polyform
+PASS: five-dimensional traversal
+PASS: symbolic Conway surreal operations
+PASS: all 25 Q² elementary states
+PASS: Q² recurrence qa'=(qa+qb+1)%5; qb'=(qb+qa+op)%5
+PASS: all 25 phase states, both VM directions, oracle, trace, retirement and inverse
+PASS: phase law persists across snapshot and resume
+PASS: VM target fitness, entropy-guided walk, early stop and snapshot persistence
+PASS: snapshot rejects invalid phase law
+PASS: Q² deterministic visual phase-space projection
+PASS: runtime self-modification
+PASS: multi-head frontier and collapse
+PASS: RIP-MIRROR reflected 5D live-code observation
+PASS: Polyform-originated x86-64 bytes executed by host RIP
+PASS: native bridge W^X/straight-line ABI gate
+PASS: native realization disabled by default
+PASS: seeded entropy replay
+PASS: 2D framebuffer output
+PASS: executable-state persistence
+PASS: snapshot length and arena bounds
+PASS: polyglot syntax executes under node
+PASS: polyglot syntax executes under python3
+PASS: polyglot syntax executes under ruby
+PASS: polyglot syntax executes under bash
+PASS: polyglot syntax executes under dash
+PASS: AArch64 and RV64 Stage-0 cross-assembly
+PASS: HX87SEM3 Hexworld entry gate
+PASS: extended lazy Conway expression universe
+PASS: Hexworld -> native accelerator -> Hexworld return
+PASS: native accelerator IR is context-bound
+PASS: non-executable host stack
+PASS: native lowering deterministic replay
+ALL TESTS PASS
+=== CRTC VERIFICATION ===
+make: Entering directory '/mnt/data/HX89_MONOLITH_FINAL/research/crtc'
+rm -rf .pytest_cache __pycache__ src/crtc/__pycache__ tests/__pycache__ build dist *.egg-info src/*.egg-info
+find . -name '*.pyc' -delete
+rm -f paper/*.aux paper/*.log paper/*.out paper/*.toc
+=== UNIT TESTS ===
+test_general_form_commutes (test_commutant.TestC6Commutant.test_general_form_commutes) ... ok
+test_reflection_flips_J (test_commutant.TestC6Commutant.test_reflection_flips_J) ... ok
+test_solver_forces_complex_scalar_form (test_commutant.TestC6Commutant.test_solver_forces_complex_scalar_form) ... ok
+test_ou_exact_gk_positive_dissipation_and_symmetry (test_counterexample.TestPositiveDissipationCounterexample.test_ou_exact_gk_positive_dissipation_and_symmetry) ... ok
+test_stability_and_positive_entropy_quadratic_form (test_counterexample.TestPositiveDissipationCounterexample.test_stability_and_positive_entropy_quadratic_form) ... ok
+test_boltzmann_circle_9595_exact_points (test_exhaustive_exact_grid.TestExhaustiveDeclaredExactGrid.test_boltzmann_circle_9595_exact_points) ... ok
+test_positive_dissipation_counterexample_1001_exact_points (test_exhaustive_exact_grid.TestExhaustiveDeclaredExactGrid.test_positive_dissipation_counterexample_1001_exact_points) ... ok
+test_all_64_transition_probabilities_normalize (test_fhp_exact.TestFHPExact.test_all_64_transition_probabilities_normalize) ... ok
+test_c6_covariance_all_64_states (test_fhp_exact.TestFHPExact.test_c6_covariance_all_64_states) ... ok
+test_complex_inversion_identity (test_fhp_exact.TestFHPExact.test_complex_inversion_identity) ... ok
+test_enumerated_collision_jacobian_recovers_published_shear_eigenvalue (test_fhp_exact.TestFHPExact.test_enumerated_collision_jacobian_recovers_published_shear_eigenvalue) ... ok
+test_published_boltzmann_circle_exact (test_fhp_exact.TestFHPExact.test_published_boltzmann_circle_exact) ... ok
+test_reflection_conjugates_p_to_one_minus_p_all_64 (test_fhp_exact.TestFHPExact.test_reflection_conjugates_p_to_one_minus_p_all_64) ... ok
+test_declared_precision_stress_suite (test_monitor.TestMonitor.test_declared_precision_stress_suite) ... MONITOR precision_case=overflow mode=mpmath dps=60 status=PASS
+MONITOR precision_case=underflow mode=mpmath dps=60 status=PASS
+MONITOR precision_case=cancellation mode=mpmath dps=60 status=PASS
+ok
+test_guarded_identity (test_monitor.TestMonitor.test_guarded_identity) ... ok
+test_overflow_recovery_does_not_change_coefficients (test_monitor.TestMonitor.test_overflow_recovery_does_not_change_coefficients) ... ok
+test_circle_and_inverse_classifier_agree (test_response_api.TestResponseAPI.test_circle_and_inverse_classifier_agree) ... ok
+test_drift_rejected (test_response_api.TestResponseAPI.test_drift_rejected) ... ok
+test_fixed_curvature_alone_is_not_crtc (test_response_classification.TestResponseClassification.test_fixed_curvature_alone_is_not_crtc) ... ok
+test_generalized_kernel_circle_maps_to_generalized_response_circle (test_response_classification.TestResponseClassification.test_generalized_kernel_circle_maps_to_generalized_response_circle) ... ok
+test_universal_circle_inverse_equivalence (test_response_classification.TestResponseClassification.test_universal_circle_inverse_equivalence) ... ok
+test_b_dependent_beta_generically_breaks_rigidity (test_rg.TestRGCriterion.test_b_dependent_beta_generically_breaks_rigidity) ... ok
+test_chirality_independent_beta_a_is_tangent (test_rg.TestRGCriterion.test_chirality_independent_beta_a_is_tangent) ... ok
+test_achiral_curvature_quadratic_drift (test_rigidity.TestRigidity.test_achiral_curvature_quadratic_drift) ... ok
+test_constant_inverse_real_is_circle_for_arbitrary_reactive_part (test_rigidity.TestRigidity.test_constant_inverse_real_is_circle_for_arbitrary_reactive_part) ... ok
+test_drifting_inverse_real_breaks_anchored_circle (test_rigidity.TestRigidity.test_drifting_inverse_real_breaks_anchored_circle) ... ok
+test_exact_inverse_response_defect_identity (test_rigidity.TestRigidity.test_exact_inverse_response_defect_identity) ... ok
+test_local_curvature_does_not_decide_global_membership (test_rigidity.TestRigidity.test_local_curvature_does_not_decide_global_membership) ... ok
+test_prefactor_drift_is_caught_by_actual_inverse_response (test_rigidity.TestRigidity.test_prefactor_drift_is_caught_by_actual_inverse_response) ... ok
+test_response_level_equivalence_no_fixed_prefactor (test_rigidity.TestRigidity.test_response_level_equivalence_no_fixed_prefactor) ... ok
+test_rigid_curvature (test_rigidity.TestRigidity.test_rigid_curvature) ... ok
+test_scaled_defect_identity (test_rigidity.TestRigidity.test_scaled_defect_identity) ... ok
+test_reduced_family_rigidity_is_decidable_without_time_simulation (test_spectral_limits.TestSpectralClaims.test_reduced_family_rigidity_is_decidable_without_time_simulation) ... ok
+test_reduced_two_dimensional_spectrum_decides_a_and_b (test_spectral_limits.TestSpectralClaims.test_reduced_two_dimensional_spectrum_decides_a_and_b) ... ok
+test_unordered_full_spectrum_is_not_enough_for_gk_overlap (test_spectral_limits.TestSpectralClaims.test_unordered_full_spectrum_is_not_enough_for_gk_overlap) ... ok
+
+----------------------------------------------------------------------
+Ran 35 tests in 3.123s
+
+OK
+
+=== EXACT SYMBOLIC REPORT ===
+CRTC EXACT STRUCTURAL REPORT
+commutant_solution= [{x11: x22, x12: -x21}]
+inverse_response_defect= (-a + a0)/(a0*(a**2 + b**2))
+defect_formula_pass= True
+normalized_defect= a0*(-a + a0)/(a**2 + b**2)
+closure_free_inverse_response_identity= 0
+fhp_64state_shear_lambda= -I*rho*(rho - 6)**3*(2*sqrt(3)*p - sqrt(3) + 3*I)/1296
+fhp_lambda_match= True
+boltzmann_circle_identity= 0
+boltzmann_complex_inversion= 0
+rigid_curvature_squared_identity= 0
+rigid_curvature_orientation_at_anchor= -2*aa
+achiral_curvature_formula= -aa*(a2*aa + 2*b1**2)/b1**2
+positive_dissipation_counterexample_defect= -d**2*eps/(aa*(aa**2 + 2*aa*d**2*eps + c**2*d**2 + d**4*eps**2))
+same_full_spectrum= True
+different_GK_overlap= 1 3/4 True
+
+=== SELF-MONITOR ===
+MONITOR model=rigid points=201 positive_dissipation=PASS identity=PASS defect_nonzero=0 expected=0 mp_fallbacks=0 status=PASS
+MONITOR model=drift points=201 positive_dissipation=PASS identity=PASS defect_nonzero=200 expected=200 mp_fallbacks=0 status=PASS
+MONITOR precision_case=overflow mode=mpmath dps=60 status=PASS
+MONITOR precision_case=underflow mode=mpmath dps=60 status=PASS
+MONITOR precision_case=cancellation mode=mpmath dps=60 status=PASS
+make: Leaving directory '/mnt/data/HX89_MONOLITH_FINAL/research/crtc'
+=== SCIENTIFIC REGISTRY ===
+python3 tools/generate_scientific_registry.py
+SCIENTIFIC_REGISTRY_PASS
+{"author": "Alex Moraru", "machine": {"chiral_global_states": 16777216, "chiral_local_states": 64, "corr_minus_ab": 229376, "corr_minus_ba": -229376, "corr_plus_ab": 720896, "corr_plus_ba": -720896, "entropy_regression_coordinate": [0, 0, 0, 0, 2], "entropy_regression_seed": 12345, "entropy_signed_branches": 10}, "project": "HX89", "status": {"green_kubo_survival_in_correlated_fhp": "open", "microscopic_reversor": "proved from local identities and machine certified on the complete 2x2 torus", "response_rigidity_classification": "proved exactly for nonzero complex response with the stated anchor", "transport_circle_boltzmann": "exact derived corollary of published molecular-chaos coefficients", "ward_identity_protection": "not established"}, "transport": {"canonical_exact_parameter_triples": 3575, "counterexample_exact_points": 1001, "counterexample_nonzero_defects": 1000, "crtc_exact_rational_points": 9595, "crtc_tests": 35}}
+=== THESIS CHECK ===
+sh tools/build_documents.sh
+wrote /mnt/data/HX89_MONOLITH_FINAL/thesis/generated/canonical.tex
+PASS: analytic figures regenerated from stated equations
+PASS: thesis and companion PDFs compiled
+DOCUMENT_BUILD_PASS
+python3 thesis/tools/generate_fragments.py --check
+PASS: canonical thesis fragments match executable sources and certificates
+python3 thesis/tools/independent_math_audit.py
+=== THESIS CHECK CONTINUATION ===
+PASS: independent symbolic audit
+  inverse-response defect: PASS
+  C6 commutant: PASS
+  FHP circle and spectral inversion: PASS
+  achiral curvature formula: PASS
+  quartic curvature false-negative witness: PASS
+  OU Green-Kubo counterexample: PASS
+  same-spectrum different-overlap witness: PASS
+PASS: prose lint across 16 authored TeX files
+PASS: canonical thesis fragments match executable sources and certificates
+PASS: cross-document consistency; labels=118 citations=16 bibliography=16
+=== CROSS-DOCUMENT CONSISTENCY ===
+CONSISTENCY_AUDIT_PASS
+FINAL_VERIFICATION_PASS

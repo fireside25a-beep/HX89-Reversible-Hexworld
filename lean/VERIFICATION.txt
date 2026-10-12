@@ -1,0 +1,9 @@
+HX89 Lean formal layer verification
+Toolchain: Lean 4.30.0 x86_64-unknown-linux-gnu, commit d024af099ca4bf2c86f649261ebf59565dc8c622
+Command from lean/: /tmp/lean-4.30.0-linux/bin/lean HX89/Chiral.lean
+Portable command with the pinned toolchain: cd lean && lean HX89/Chiral.lean
+Exit status: 0
+Diagnostics: none
+Source SHA-256: 10674d09868e520f9f6c0fb3d6cddc0b5022d3b745c34f8c5b5b98dc49228dbb
+Scope: local Fin 64 identities and conditional EndpointSystem algebraic echo.
+Concrete torus indexing, VM, continuous-p dynamics, and correlated transport are not Lean-formalized.

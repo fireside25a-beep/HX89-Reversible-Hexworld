@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-label="HX89 architecture">
+  <rect width="1200" height="620" fill="#000"/>
+  <g fill="none" stroke="#fff" stroke-width="2">
+    <rect x="40" y="40" width="1120" height="540" rx="8"/>
+    <rect x="90" y="105" width="210" height="86" rx="4"/><rect x="365" y="105" width="210" height="86" rx="4"/>
+    <rect x="640" y="105" width="210" height="86" rx="4"/><rect x="915" y="105" width="195" height="86" rx="4"/>
+    <path d="M300 148H365M575 148H640M850 148H915"/><path d="M353 142l12 6-12 6M628 142l12 6-12 6M903 142l12 6-12 6"/>
+    <rect x="165" y="275" width="870" height="178" rx="6"/>
+    <path d="M240 330H960M240 390H960" opacity=".35"/>
+    <path d="M575 191V275M1012 191V238H910V275"/>
+    <path d="M569 263l6 12 6-12M904 263l6 12 6-12"/>
+    <rect x="200" y="492" width="260" height="52" rx="4"/><rect x="470" y="492" width="260" height="52" rx="4"/><rect x="740" y="492" width="260" height="52" rx="4"/>
+  </g>
+  <g fill="#fff" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">
+    <text x="70" y="78" font-size="22" font-weight="700">EXECUTION TOPOLOGY</text>
+    <text x="195" y="140" font-size="16" text-anchor="middle">BIT / ETCH / PCM</text><text x="195" y="165" font-size="12" text-anchor="middle" opacity=".62">independent carriers</text>
+    <text x="470" y="140" font-size="16" text-anchor="middle">HX0</text><text x="470" y="165" font-size="12" text-anchor="middle" opacity=".62">minimal entrance machine</text>
+    <text x="745" y="140" font-size="16" text-anchor="middle">HX89CORE</text><text x="745" y="165" font-size="12" text-anchor="middle" opacity=".62">canonical semantics</text>
+    <text x="1012" y="140" font-size="16" text-anchor="middle">HX89PF</text><text x="1012" y="165" font-size="12" text-anchor="middle" opacity=".62">content-first programs</text>
+    <text x="600" y="314" font-size="18" text-anchor="middle">HEXWORLD</text>
+    <text x="600" y="356" font-size="14" text-anchor="middle" opacity=".78">5D sparse field • Q² phase • mutation • entropy • snapshots • symbolic Conway values</text>
+    <text x="600" y="416" font-size="14" text-anchor="middle" opacity=".78">host capsule is physical transport; persistent semantics stay in machine state</text>
+    <text x="330" y="524" font-size="13" text-anchor="middle">REVERSIBLE HEX GAS</text>
+    <text x="600" y="524" font-size="13" text-anchor="middle">SIGNAL RECONSTRUCTION</text>
+    <text x="870" y="524" font-size="13" text-anchor="middle">NATIVE REALIZATION (OPT-IN)</text>
+  </g>
+</svg>

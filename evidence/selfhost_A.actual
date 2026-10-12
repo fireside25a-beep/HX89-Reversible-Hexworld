@@ -1,0 +1,4 @@
+HEXWORLD_ENTER semantic=HX87SEM3 dims=5 q2=25 epoch=0
+HX89 seed=1 cells=2
+REGENERATED hx89.regen cells=2
+HX89 halt steps=2 heads=1 nodes=0 stack=0 hash=ffbce13fafa92c09

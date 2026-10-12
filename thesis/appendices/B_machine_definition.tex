@@ -1,0 +1,35 @@
+\chapter{Machine and Executable Definitions}\label{app:machine}
+
+\section{Purpose}
+This appendix records the executable objects that support the thesis. It is not a substitute for the source files. Paths are given so that each statement can be traced to the canonical implementation.
+
+\begin{longtable}{p{.32\textwidth}p{.58\textwidth}}
+\toprule
+Path & Role \\
+\midrule
+\endhead
+\texttt{src/chiral\_law.c} & Standalone deterministic chiral gas certificate, including local collision permutations, streaming, reflection, velocity reversal, exhaustive $2\times2$ state enumeration, echo, and correlation witness.\\
+\texttt{tests/test\_chiral\_law.py} & Independent Python oracle for larger tori, multiple echo times, collision covariance, and exact rational one body invariant rank.\\
+\texttt{tests/test\_transport\_circle.py} & Exact $\mathbb{Q}(\sqrt3)$ reconstruction of the published kinetic transport circle, spectral relation, and weak field image.\\
+\texttt{research/crtc/src/crtc} & Response geometry, FHP reconstruction, correlated models, spectral tests, renormalization criterion, and numerical monitor.\\
+\texttt{research/crtc/tests} & Thirty five unit tests including symbolic identities and finite exact domains.\\
+\texttt{polyforms/entropy.hx} & Five dimensional sparse Polyform with explicit termination cells on all ten signed entropy exits.\\
+\texttt{tests/test\_entropy\_sparse.py} & Regression for seed $12345$ and complete signed axis endpoint coverage.\\
+\texttt{evidence} & Regenerated machine certificates, waveforms, images, state snapshots, and release evidence.\\
+\bottomrule
+\end{longtable}
+
+\section{Sparse field termination}
+The entropy Polyform uses rows of the form
+\begin{center}
+\texttt{CELL x y z w v opcode arg0 arg1 arg2}.
+\end{center}
+The origin executes the entropy selector. Each first step cell emits one axis letter. Each signed distance two endpoint has opcode zero, which is the explicit HALT operation in this Polyform encoding. All ten endpoints are present. This representation preserves the semantic distinction between an intentional halt and execution into an undefined sparse coordinate.
+
+\section{Build products and evidence}
+The root Makefile builds the x86\_64 HX89 executable, the HX0 bootstrap, the pulse PCM signal tool, the hex gas, the byte Polyform tool, and the chiral proof executable. Release evidence regenerates canonical machine outputs rather than shipping only a handwritten report.
+
+The thesis itself is added as another reproducible target. Its generated values come from existing evidence and test definitions, while its independent symbolic audit is intentionally outside the CRTC import path.
+
+\section{External data boundary}
+Files under \texttt{evidence/external\_runs/raw} are retained verbatim when present. Their metadata is insufficient for scientific use. They are not parsed into plots, not included in numerical claims, and not used as input to any theorem test in this thesis. This rule prevents accidental promotion of unknown traces into evidence.

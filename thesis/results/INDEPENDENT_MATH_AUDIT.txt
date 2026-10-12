@@ -1,0 +1,8 @@
+PASS: independent symbolic audit
+  inverse-response defect: PASS
+  C6 commutant: PASS
+  FHP circle and spectral inversion: PASS
+  achiral curvature formula: PASS
+  quartic curvature false-negative witness: PASS
+  OU Green-Kubo counterexample: PASS
+  same-spectrum different-overlap witness: PASS

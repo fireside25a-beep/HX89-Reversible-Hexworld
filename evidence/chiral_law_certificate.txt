@@ -1,0 +1,1 @@
+CHIRAL_LAW_PASS local_states=64 global_states=16777216 mirror_chirality=PASS theta_involution=PASS dressed_PT_reversor=PASS echo=PASS correlation_reciprocity=PASS both_chiralities=PASS corr_minus=229376/-229376 corr_plus=720896/-720896

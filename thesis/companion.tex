@@ -1,0 +1,152 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[a4paper,margin=28mm,headheight=15pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{newtxtext,newtxmath}
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{booktabs,longtable,array}
+\usepackage{fancyhdr}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Alex Moraru Thesis Companion},pdfauthor={Alex Moraru}}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{listings}
+\input{generated/canonical}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Alex Moraru Thesis Companion}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\newcommand{\RePart}{\operatorname{Re}}
+\newcommand{\etal}{\textit{et al.}}
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Alex Moraru Thesis Companion\par}
+\vspace{4mm}
+{\Large Exact Microscopic Reciprocity and Response Rigidity in Chiral Hexagonal Lattice Gases\par}
+\vspace{4mm}
+{\large Alex Moraru, Independent Researcher, September 2026\par}
+\end{center}
+
+\section*{One paragraph abstract}
+The work asks when a chiral two dimensional transport response $Z=\bar\eta+i\eta_H$ is constrained to the circle anchored by its parity symmetric value and whether that constraint can survive beyond molecular chaos. Four results are separated. First, the deterministic HX89 endpoint automaton has an exact collision dressed reversor and an all time echo, supported by a complete \HXGlobalStates{} state certificate on the $2\times2$ six channel torus. Second, the published molecular chaos coefficients of the chiral FHP model lie exactly on a transport circle and satisfy a complex inverse shear eigenvalue relation \cite{Allocca2026}. Third, for any nonzero measured response, anchored circle membership is equivalent to constancy of $\RePart(1/Z)$; $C_6$ symmetry gives the shear normal form $aI+bJ$ but does not force the dissipative coordinate $a$ to be constant. Fourth, an exact stationary positive dissipation Ornstein Uhlenbeck Green Kubo family provides both rigid and nonrigid correlated classes, proving that symmetry and positivity alone do not protect the circle. The open problem is whether the fully correlated chiral FHP response obeys the inverse response rigidity condition under a specified finite size, time, frequency, or renormalization prescription.
+
+\section*{Theorem, conjecture, and engineering separation}
+\begin{longtable}{p{.28\textwidth}p{.19\textwidth}p{.45\textwidth}}
+\toprule
+Statement & Status & Boundary \\
+\midrule
+\endhead
+Collision dressed reversor and echo & Proved & Exact for the defined deterministic endpoint automata; does not determine viscosity.\\
+Three one body collision invariants & Proved & Exact for the implemented local collision table.\\
+Published chiral FHP kinetic circle & Exact corollary & Conditional on the published molecular chaos transport formulas.\\
+$\Delta=0\iff\RePart(1/Z)=\RePart(1/Z_0)$ & Proved & Closure free for every nonzero complex response with stated anchor.\\
+$C_6$ implies $aI+bJ$ & Proved & Symmetry normal form only; constant $a$ does not follow.\\
+Positive dissipation nonrigid family exists & Proved by construction & Exact OU Green Kubo counterexample; not an FHP surrogate.\\
+Correlated chiral FHP preserves the circle & Open & Requires a microscopic, RG, resolvent, or equivalent correlated response proof.\\
+Entropy sparse endpoint repair & Engineering & Seed $12345$ and all ten signed exits terminate on explicit HALT cells; unrelated to the transport theorem.\\
+\bottomrule
+\end{longtable}
+
+\section*{Central equations}
+With $Z=x+iy$, $Z_0=x_0>0$, define
+\begin{equation}
+ \Delta=|Z|^2-x_0\operatorname{Re}Z.
+\end{equation}
+Then
+\begin{equation}
+ \frac{\Delta}{|Z|^2}=1-x_0\operatorname{Re}\left(\frac1Z\right),
+\end{equation}
+so
+\begin{equation}
+ \Delta=0
+ \quad\Longleftrightarrow\quad
+ \operatorname{Re}\left(\frac1Z\right)=\operatorname{Re}\left(\frac1{Z_0}\right).
+\end{equation}
+If $1/Z=a+ib$ and $a_0=1/x_0$,
+\begin{equation}
+ \Delta=\frac{a_0-a}{a_0(a^2+b^2)}.
+\end{equation}
+This is the complete membership classifier for the specified anchored circle.
+
+For the published zero field chiral FHP molecular chaos formulas, define $D=\rho(1-\rho/6)^3$, $d=p-1/2$, $A=1/(2D)$, and $u=(2\sqrt3/3)d$. Then
+\begin{equation}
+ \bar\eta=\frac{A}{1+u^2},\qquad
+ \eta_H=-\frac{Au}{1+u^2},
+\end{equation}
+and therefore
+\begin{equation}
+ \bar\eta^2+\eta_H^2=A\bar\eta.
+\end{equation}
+The corresponding shear eigenvalue obeys $Z_B=-1/(4\lambda^*)$ in the repository convention.
+
+\section*{Three strongest objections}
+\subsection*{1. The circle is only complex inversion}
+Complex inversion mapping a vertical line to a circle is classical. The work does not claim otherwise. The contribution is the exact anchored response classifier in terms of the measured inverse response, the symmetry boundary that shows $C_6$ does not force rigidity, and the explicit correlated witness on the nonrigid side. The limitation is that the general geometry of Mobius maps is prior mathematics, not a new result here.
+
+\subsection*{2. Hexagonal symmetry should force the result}
+It does not. Solving the commutant of the two component shear representation gives $aI+bJ$. Reflection permits arbitrary even functions in $a(d)$ and odd functions in $b(d)$. The OU counterexample chooses a positive even drift $a=a_0+\epsilon d^2$ and leaves the circle. A stronger microscopic principle could still protect a particular model, but it has not been proved for correlated chiral FHP.
+
+\subsection*{3. The counterexample is not the FHP automaton}
+Correct. It is not used to predict the FHP outcome. It proves that stationarity, positive dissipation, reflection covariance, and the two component rotational form are insufficient by themselves. A model specific FHP proof therefore needs additional structure.
+
+\section*{Why not alternatives?}
+\textbf{Why not fit circles directly?} A short noisy arc can fit many circles. The anchored inverse response criterion tests the exact relation and points directly to dissipative drift.
+
+\textbf{Why not use local curvature alone?} A quartic dissipative drift has the rigid achiral curvature but leaves the circle away from the anchor.
+
+\textbf{Why not decide from the full collision spectrum?} A Green Kubo response is a resolvent matrix element. Eigenvalues are insufficient without projectors and observable overlaps unless an exact reduced shear block and its normalization are identified.
+
+\textbf{Why not call the defect relation a Ward identity?} No symmetry or conservation law has been shown to enforce constant $\RePart(1/Z)$. Established viscosity Ward identities have a derivation from symmetry generators or conservation laws \cite{Bradlyn2012}.
+
+\section*{Glossary for a reader outside the subfield}
+\begin{longtable}{p{.25\textwidth}p{.67\textwidth}}
+\toprule
+Term & Meaning \\
+\midrule
+\endhead
+Anchored response circle & The circle with diameter between the origin and the parity symmetric response value.\\
+Circle defect & $\Delta=|Z|^2-x_0\operatorname{Re}Z$. It vanishes exactly on the anchored circle.\\
+Green Kubo response & A transport response obtained from an integral of stationary time correlation functions.\\
+Hall or odd viscosity & The parity odd reactive viscosity coordinate in a two dimensional fluid.\\
+Inverse response rigidity & Constancy of $\operatorname{Re}(1/Z)$ relative to the achiral anchor.\\
+Long time tail & Algebraic late time decay of a hydrodynamic correlation function. It affects limiting transport in two dimensions.\\
+Molecular chaos & A kinetic closure that factorizes precollision correlations.\\
+Shear doublet & The two real traceless symmetric shear components that rotate as a two dimensional representation.\\
+Ward identity & A response identity derived from a specified symmetry or conservation law.\\
+\bottomrule
+\end{longtable}
+
+\section*{Prior art mention list}
+\begin{longtable}{p{.24\textwidth}p{.68\textwidth}}
+\toprule
+Reference & What it establishes and why it is needed here \\
+\midrule
+\endhead
+Frisch, Hasslacher, Pomeau 1986 \cite{FHP1986} & Establishes the triangular lattice gas route to Navier Stokes hydrodynamics. It supplies the foundational microscopic setting.\\
+Ernst and Dufty 1989 \cite{ErnstDufty1989} & Derives Green Kubo relations for lattice gas cellular automata from local conservation laws. It supplies the correlated transport language.\\
+Naitoh, Ernst, Dufty 1990 \cite{Naitoh1990} & Demonstrates long time correlation tails in two dimensional FHP fluids. It prevents an unqualified infinite time viscosity assumption.\\
+Avron 1998 \cite{Avron1998} & Gives the canonical formulation of odd viscosity as a nondissipative transport coefficient.\\
+Banerjee \etal\ 2017 \cite{Banerjee2017} & Develops odd viscosity in classical chiral active fluids and clarifies the reactive constitutive role.\\
+Bradlyn, Goldstein, Read 2012 \cite{Bradlyn2012} & Derives viscosity Kubo formulas and genuine Ward identities. It sets the standard for the thesis's Ward identity boundary.\\
+Fruchart \etal\ 2022 \cite{Fruchart2022} & Connects chiral collisions, non Hermitian kinetic operators, and odd transport. It motivates complex collision spectra without implying CRTC.\\
+Allocca \etal\ 2026 \cite{Allocca2026} & Supplies the chiral FHP model and molecular chaos coefficients whose exact transport circle is reconstructed here.\\
+Eren, Fruchart, Vitelli 2026 \cite{Eren2026} & Develops a collisional kinetic model for odd fluids and uses collision spectra to identify hydrodynamic response structure.\\
+\bottomrule
+\end{longtable}
+
+\section*{Reproducibility manifest}
+The canonical machine tree and thesis are verified together. The primary command is:
+\begin{lstlisting}
+make verify-all
+\end{lstlisting}
+A successful run checks the HX89 machine suite, seed $12345$ sparse termination, all ten entropy exits, sanitizer builds, the chiral certificate, \HXTransportGridPoints{} exact HX89 transport points, \CRTCUnitTests{} CRTC tests, \CRTCBoltzmannGridPoints{} exact zero field kinetic points, the \CRTCCounterGridPoints{} point counterexample domain, the independent symbolic thesis audit, generated fragment freshness, prose lint, PDF compilation, and unresolved reference checks.
+
+The fully correlated chiral FHP circle remains an open problem after all of these checks. The verification suite establishes theorems and counterexamples under their stated definitions; it does not convert the open model specific statement into a theorem.
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+\end{document}

@@ -1,0 +1,98 @@
+\chapter{Discussion: What Would Correlated CRTC Survival Mean?}\label{ch:discussion}
+
+\section{The open physical statement}
+The exact theorem of \cref{ch:rigidity} does not settle whether the fully correlated chiral FHP automaton preserves the kinetic circle. It turns that question into a precise condition. Under any stated finite size, finite time, frequency, or running scale prescription, define the actual complex shear response $Z(p)$. Correlated CRTC survival means
+\begin{equation}
+ \RePart\!\left[\frac1{Z(p)}\right]
+ =\RePart\!\left[\frac1{Z(p_0)}\right]
+ \label{eq:discussion_survival}
+\end{equation}
+throughout the chirality domain of interest.
+
+If \cref{eq:discussion_survival} holds, shear and Hall viscosities are not independent functions of chirality under that prescription. One real function, together with the anchor and parity, determines their location on a one dimensional geometric constraint. The response map has fewer independent degrees of freedom than a generic pair of transport functions.
+
+If it fails, the defect formula identifies the cause without ambiguity at the response level: the real part of the measured inverse response has acquired chirality dependence. The theorem does not require one to guess whether the failure came from a collision eigenvalue shift, a response residue, a memory kernel, or coupling to another slow variable. Those are microscopic explanations of a measured inverse response drift, not alternative definitions of the drift.
+
+\section{What survival would say about renormalization}
+In the molecular chaos calculation, the complex shear eigenvalue follows a vertical line at fixed density. Correlations can be described formally by an effective inverse response, a memory function, or a self energy. If the reduced shear problem remains two dimensional, correlated CRTC survival requires the renormalized dissipative inverse coordinate to be independent of chirality relative to the achiral anchor.
+
+That is a restrictive statement. Parity allows an expansion
+\begin{equation}
+ a(d)=a_0+a_2d^2+a_4d^4+\cdots.
+ \label{eq:discussion_even_drift}
+\end{equation}
+Every coefficient after $a_0$ must vanish for exact rigidity. Symmetry does not set them to zero. A proof of survival must therefore identify additional dynamics that forbids all such even chirality corrections or makes their combined contribution cancel in the actual measured inverse response. In particular, this is not a Ward identity established by the present symmetry analysis; such a statement would require an additional microscopic symmetry or conservation law.
+
+The RG criterion \cref{eq:rg_tangent} is one way to express that requirement. If the rigid manifold is preserved by scale evolution, then the flow of the dissipative coordinate must be the same at $p$ and at the anchor whenever the response starts on the manifold. This is stronger than saying that the odd coordinate has a special parity or that odd viscosity is reactive.
+
+\section{Odd viscosity does not by itself protect the circle}
+Odd viscosity is nondissipative in the conventional constitutive energy balance \cite{Avron1998,Banerjee2017}. That fact means that the antisymmetric transport component does not directly contribute to entropy production in the same way as ordinary shear viscosity. It does not imply that the dissipative coefficient is immune to chirality dependent correlation corrections.
+
+The counterexample in \cref{ch:counterexample} makes this logical point explicit. The reactive coordinate is odd, the symmetric drift is positive, and the stationary response is exactly computable, yet $a(d)$ drifts and the circle fails. Protection of CRTC therefore requires a statement about the dissipative inverse response, not merely the nondissipative character of $\eta_H$.
+
+Likewise, results concerning topological Hall viscosity in gapped quantum systems should not be transferred automatically to a classical two dimensional lattice gas. The symmetry class, state space, conservation laws, and hydrodynamic fluctuation structure are different.
+
+\section{Long time tails and the order of limits}
+The 1990 FHP long time tail calculation shows why the correlated problem should not be phrased only as a single infinite time number \cite{Naitoh1990}. At fixed finite lattice size, a deterministic cellular automaton has a finite state space and ultimately recurrent dynamics. In an infinite hydrodynamic scaling limit, long wavelength modes can generate algebraic tails. A physically meaningful transport statement must specify how these limits are approached.
+
+Useful regulated responses include
+\begin{equation}
+ Z_{L,T}(p),
+ \qquad
+ Z_{L}(\omega,p),
+ \qquad
+ Z_{\ell}(p).
+ \label{eq:regulated_responses}
+\end{equation}
+Here $L$ is system size, $T$ an integration cutoff, $\omega$ a frequency, and $\ell$ a coarse graining scale. The rigidity theorem applies separately to each nonzero regulated response. One can then ask whether the defect remains zero, tends to zero, approaches a nonzero function, or fails to converge as the regulator changes.
+
+A common divergence in both coordinates would not by itself decide the normalized geometry. What matters is the chirality dependence of $\RePart(1/Z)$ at the same regulator. This formulation avoids claiming that a divergent shear viscosity can simply be subtracted away while preserving a finite odd coordinate.
+
+\section{A falsification path}
+The theorem gives a direct falsification strategy for any future exact or numerical correlated calculation.
+
+\begin{enumerate}[label=\arabic*.]
+\item Fix density, boundary conditions, ensemble, system size, response frequency or integration window, and the definition of the shear observables.
+\item Compute or estimate the complex response $Z(p)$ and the achiral anchor $Z(p_0)$ under the same prescription.
+\item Form the inverse response and measure
+\begin{equation}
+ G(p)=\RePart[1/Z(p)]-\RePart[1/Z(p_0)].
+ \label{eq:falsification_g}
+\end{equation}
+\item Test whether $G(p)$ is identically zero within exact arithmetic or whether its uncertainty interval excludes zero in a controlled statistical calculation.
+\item If $G$ is nonzero, use the defect identity to predict the corresponding circle departure and compare it with the directly measured geometric defect.
+\item Repeat the analysis while changing the regulator to distinguish a finite scale effect from a stable asymptotic trend.
+\end{enumerate}
+
+A circle fit alone is weaker than this procedure. A finite set of noisy points can look circular even when inverse dissipative drift is present, and many circles can fit a short arc. The anchored inverse response criterion tests the specific relation derived from the parity anchor.
+
+\section{What would count as a proof}
+A model specific proof of correlated CRTC survival could take several forms.
+
+One route would be an exact microscopic identity showing that the chirality dependent contribution to $\RePart(1/Z)$ vanishes. Such an identity could arise from a previously unrecognized conservation law or exact decoupling of the dissipative shear channel.
+
+A second route would be a controlled renormalization calculation proving that the rigid manifold is invariant, that is, deriving \cref{eq:rg_tangent} from the microscopic model at every relevant scale.
+
+A third route would be an exact finite system resolvent calculation followed by a mathematically controlled limiting argument. In that case the response residue and mode overlaps must be retained; the unordered spectrum alone is not sufficient.
+
+A fourth route could use another nonperturbative construction that computes the same response and proves the invariant directly. The structural theorem is agnostic about which route is used. What matters is that the actual correlated $Z$ satisfies \cref{eq:discussion_survival}.
+
+\section{Comparison with familiar transport relations}
+Relations such as Wiedemann Franz or Stokes Einstein link distinct transport quantities under particular physical assumptions. CRTC, if established for a correlated microscopic model, would likewise reduce independent transport data. The comparison should remain conceptual rather than literal. Those relations have their own conservation laws, quasiparticle assumptions, or fluctuation mechanisms. The present theorem does not derive them and does not borrow their protection arguments.
+
+The Kramers Kronig analogy is even more limited. Kramers Kronig relations use analyticity in frequency and causality to link dispersive and absorptive response components. CRTC instead concerns the path of a static or fixed prescription response as a chirality control parameter changes. Both use complex response notation, but the independent variable and mathematical reason for the relation are different.
+
+\section{Potential generalization}
+The closure free theorem is not tied to FHP. Any two component response with a real positive anchor can be tested by \cref{eq:rig_theorem}. The $C_6$ commutant calculation is more specific: it explains why a hexagonal shear sector reduces naturally to a complex scalar. Other point groups can produce different commutants and therefore different response geometries.
+
+A useful general program is to classify response manifolds by three ingredients: the symmetry commutant of the relevant tensor sector, the analytic map from the effective kernel to the measured response, and the invariant submanifolds of the renormalization flow. In the present case those ingredients are a complex scalar commutant, inversion, and the vertical line $\RePart Q=a_0$. The image is a circle. In a higher dimensional or anisotropic sector, the corresponding geometry need not be circular.
+
+\section{Limits of the current evidence}
+The repository includes preserved external numerical traces with incomplete provenance. They are not used to support the correlated CRTC claim. No generator, units, ensemble, lattice size, integration time, or estimator is documented well enough to turn those values into evidence for a Green Kubo limit. Retaining the files while excluding them from proof is preferable to assigning semantics that the record does not contain.
+
+The current exact endpoint automaton is also not the complete continuous chiral FHP family. A future study that mixes endpoint rules stochastically or implements the published $p$ dependent collisions must document that model independently and should not describe the endpoint exhaustive certificate as an exhaustive test over $p$.
+
+Finally, the Ornstein Uhlenbeck model is a counterexample to structural protection by symmetry and positivity. It is not evidence that the chiral FHP automaton breaks the circle. Its role is to show that a model specific argument is logically necessary.
+
+\section{Chapter conclusion}
+If correlated CRTC survival is eventually proved, its meaning is precise: the dissipative part of the measured inverse shear response remains chirality independent under the specified response prescription, so shear and Hall viscosities occupy one constrained response manifold rather than two independent functions. The present work establishes the classifier and the obstruction class, not the missing microscopic protection theorem. This distinction turns a visual pattern into a falsifiable structural question.

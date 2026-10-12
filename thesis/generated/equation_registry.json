@@ -1,0 +1,511 @@
+{
+  "equation_count": 101,
+  "equations": {
+    "eq:a0": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.10",
+      "sha256": "02b4399e7edf233839bebcb5253dd3bbf9ae97c690ac57598eee0fa58c73753b"
+    },
+    "eq:app_circle": {
+      "file": "appendices/A_proofs.tex",
+      "number": "A.1",
+      "sha256": "e393009016623a202afdb625c4309e3d9a1135fa52115b2e29d3d57465ef380c"
+    },
+    "eq:app_classifier": {
+      "file": "appendices/A_proofs.tex",
+      "number": "A.5",
+      "sha256": "9214c61265e56e484132285d1a0530a27558d7ff2463acd0a283a7e4787f7a7e"
+    },
+    "eq:app_delta_zero": {
+      "file": "appendices/A_proofs.tex",
+      "number": "A.2",
+      "sha256": "8fef70d03a8e6dbfc79df16ab64d45a1e319e85afea021662efe724bfffa6a46"
+    },
+    "eq:app_inverse": {
+      "file": "appendices/A_proofs.tex",
+      "number": "A.3",
+      "sha256": "5429b9bcc9a83a530d07e494676080499e94b111bb687cc08f8ee55bd27f92be"
+    },
+    "eq:app_inverse_real": {
+      "file": "appendices/A_proofs.tex",
+      "number": "A.4",
+      "sha256": "2bb3eb74428a3b7fa3b67963a2fdec306f30db62e9a8e22c522655756ebe8f72"
+    },
+    "eq:axial_reflection": {
+      "file": "chapters/04_microscopic.tex",
+      "number": "4.6",
+      "sha256": "3cb7e86d11e58b5616d9cea196f73b363395ced265ba22d1995de21b0c67e485"
+    },
+    "eq:c6_rotation": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.15",
+      "sha256": "2f18e18d2e1ce2e84c759ef25e8893b845488aa37d725ab2f9c8cdfbff025c7f"
+    },
+    "eq:chi_endpoint": {
+      "file": "chapters/04_microscopic.tex",
+      "number": "4.1",
+      "sha256": "b9fd8819067afb3cd96d8f15a4141c9c11ba3060efaf43d59e6304d0310f0455"
+    },
+    "eq:collision_inverse": {
+      "file": "chapters/04_microscopic.tex",
+      "number": "4.4",
+      "sha256": "069fc32c41442ed6a82f2066acd3d0412598fc73e8a440f509be0539732eafbf"
+    },
+    "eq:collision_mirror": {
+      "file": "chapters/04_microscopic.tex",
+      "number": "4.8",
+      "sha256": "bf7d6781e18cc6d49d228b6a269e4ae6e767c62c96583921674a65e65e601c66"
+    },
+    "eq:commutant_constraints": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.17",
+      "sha256": "615aaa7d02a5476a52323aaa00d67d5c3fc2ad1d1bf029bac8be73f807625209"
+    },
+    "eq:commutant_form": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.18",
+      "sha256": "4a1dee06bae4f712bb58276a26cd04542b9f873307e55bd00a87f52072716a0b"
+    },
+    "eq:conclusion_g": {
+      "file": "chapters/09_conclusion.tex",
+      "number": "9.1",
+      "sha256": "d9a84a2cffd05e8190bd937be02b062feaf75d032752655fa0a7e8aa446958f0"
+    },
+    "eq:crtc_boltz_grid_count": {
+      "file": "chapters/05_kinetic_circle.tex",
+      "number": "5.14",
+      "sha256": "d7281c97a727a6a4b730b17f4b6297dcdce26b6c9a9b1c3b12ccb45ac7d16d8d"
+    },
+    "eq:curvature_achiral": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.22",
+      "sha256": "4b617caba1e208a416196f5d87119536c26300e718efff97ee6cb55070e0b249"
+    },
+    "eq:curvature_general": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.20",
+      "sha256": "e0a46d656f094a17a8e517415bd8307264c941cac122032d050994e1514d5450"
+    },
+    "eq:defect_ab": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.12",
+      "sha256": "1775a2f2f719fae91b3192965fdb6b4a28d1a8562e453f072f27682632a530cf"
+    },
+    "eq:different_overlap": {
+      "file": "chapters/07_counterexample.tex",
+      "number": "7.19",
+      "sha256": "368a025c151433c15a979638ad443fd11e47246a4dfcae999d71be085ba09aca"
+    },
+    "eq:discussion_even_drift": {
+      "file": "chapters/08_discussion.tex",
+      "number": "8.2",
+      "sha256": "a8b155c44e1e27b8bfc341ba2c8ddae283e828e5ad78129828bd0dfb41261ba4"
+    },
+    "eq:discussion_survival": {
+      "file": "chapters/08_discussion.tex",
+      "number": "8.1",
+      "sha256": "c05fd6967e418e6e8e041a5818574f91b3cde83f4fa82b2eb646d14503fec9e2"
+    },
+    "eq:echo_identity": {
+      "file": "chapters/04_microscopic.tex",
+      "number": "4.13",
+      "sha256": "2cf9f081395efe1489895edd167113efb0b3234f584bae7b92bf9d4d4d142327"
+    },
+    "eq:eta_shift": {
+      "file": "chapters/05_kinetic_circle.tex",
+      "number": "5.3",
+      "sha256": "4b26c5794960e0c11de06977050e8c3ad1330939adcbd5cdd980467a3c0b2039"
+    },
+    "eq:falsification_g": {
+      "file": "chapters/08_discussion.tex",
+      "number": "8.4",
+      "sha256": "71114edbc57f4f5dd50923a783ba4608c1d41831d6d8063aae5098f9d64a0940"
+    },
+    "eq:full_mirror": {
+      "file": "chapters/04_microscopic.tex",
+      "number": "4.14",
+      "sha256": "43c929190f628f6b970103ad146f4d072aa1e1f32d7add7bc4d66b2b9010cb56"
+    },
+    "eq:full_step": {
+      "file": "chapters/04_microscopic.tex",
+      "number": "4.5",
+      "sha256": "febffb3db94eb5b7403273cdb7aa45502febb21b18ade099a56fc4e4319a1635"
+    },
+    "eq:generic_m": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.16",
+      "sha256": "5c01e6639da2d76063dde58c2d77e1c257c991c960547a9e8e77d2aaff755b27"
+    },
+    "eq:global_state_count": {
+      "file": "chapters/04_microscopic.tex",
+      "number": "4.16",
+      "sha256": "db4e0c35a75c2351a8793545ef579161d4434eef4c7e76a3bdb4d0cd449ea138"
+    },
+    "eq:intro_boltz_circle": {
+      "file": "chapters/01_introduction.tex",
+      "number": "1.7",
+      "sha256": "d60ad2d955e571f7ec007fd651dfe99eef8633b332c2a68be9530a7d9aa5fb84"
+    },
+    "eq:intro_commutant": {
+      "file": "chapters/01_introduction.tex",
+      "number": "1.12",
+      "sha256": "f01eea7b0c26d56e51b04ce0064859e2dbabc54c9254babbc98456d42f7a91cd"
+    },
+    "eq:intro_defect": {
+      "file": "chapters/01_introduction.tex",
+      "number": "1.8",
+      "sha256": "e63799281de1602f9c5cd10b0f1b3015980524293839f7e431e7b9d134a44b16"
+    },
+    "eq:intro_defect_ab": {
+      "file": "chapters/01_introduction.tex",
+      "number": "1.11",
+      "sha256": "2d645432f0a7d0b79741168c44fbce7547e594db0f03c45e80a0489f5748ca1b"
+    },
+    "eq:intro_f": {
+      "file": "chapters/01_introduction.tex",
+      "number": "1.2",
+      "sha256": "febffb3db94eb5b7403273cdb7aa45502febb21b18ade099a56fc4e4319a1635"
+    },
+    "eq:intro_fhp_coeffs": {
+      "file": "chapters/01_introduction.tex",
+      "number": "1.6",
+      "sha256": "e8a335652f00f2704a7e67ab944f1a536a0dee7a1a0f1343cdf4fe5417bdc9fb"
+    },
+    "eq:intro_fhp_defs": {
+      "file": "chapters/01_introduction.tex",
+      "number": "1.5",
+      "sha256": "367f79cd77f412895b383b1b53e38c118ad83376c01c6fa421119ae785780b04"
+    },
+    "eq:intro_inverse_identity": {
+      "file": "chapters/01_introduction.tex",
+      "number": "1.9",
+      "sha256": "6c33f12dc4f60312e3b8f958599654ee77d2b4f6e36b241231dc57907ae282a6"
+    },
+    "eq:intro_ou": {
+      "file": "chapters/01_introduction.tex",
+      "number": "1.13",
+      "sha256": "6c6a9997fe2f539cee7a28a1049e1934e6b323cd0ae620acb9a05e4a30bcd987"
+    },
+    "eq:intro_ou_defect": {
+      "file": "chapters/01_introduction.tex",
+      "number": "1.14",
+      "sha256": "2aaec2ed4578412acbe95baf0d1ece641fb406fb38475245dd4b03c55ecde287"
+    },
+    "eq:intro_response": {
+      "file": "chapters/01_introduction.tex",
+      "number": "1.1",
+      "sha256": "4caacc65398aa6853b29d8712e3951d486e0258d2eda577e4e816f10608decd0"
+    },
+    "eq:intro_reversor": {
+      "file": "chapters/01_introduction.tex",
+      "number": "1.4",
+      "sha256": "075ee4e02b56c42e8dce6c2255b6dc03677d2e9079b98549e68412ba30603a15"
+    },
+    "eq:intro_rigidity": {
+      "file": "chapters/01_introduction.tex",
+      "number": "1.10",
+      "sha256": "8a4035748a39d1673f520efefa5eff94e45e30595d2777355e6ab0e5aff5996a"
+    },
+    "eq:intro_theta": {
+      "file": "chapters/01_introduction.tex",
+      "number": "1.3",
+      "sha256": "7986f3362b5f7bbf58e43536a4ee26c822461624b3336731a7612241f3ab244e"
+    },
+    "eq:kin_Au": {
+      "file": "chapters/05_kinetic_circle.tex",
+      "number": "5.2",
+      "sha256": "262bbfa5ae84e26e436b031d3a966503e0503842cee0aaee3016d4a99335d284"
+    },
+    "eq:kin_D": {
+      "file": "chapters/05_kinetic_circle.tex",
+      "number": "5.1",
+      "sha256": "1ea633a7c0e2a8c995fbf79020a041258a537d071e91d35aeb9c7cad80783907"
+    },
+    "eq:kin_circle_centered": {
+      "file": "chapters/05_kinetic_circle.tex",
+      "number": "5.8",
+      "sha256": "2fa6f38dc81a65e4b6f29d6ccf56239412f38b4d3b5e51bfed7c8fdad1bfdef6"
+    },
+    "eq:kin_circle_eta": {
+      "file": "chapters/05_kinetic_circle.tex",
+      "number": "5.9",
+      "sha256": "202be360de8fb73188732db3edc3fbed56abc920b34d996f997e5a9dac833edd"
+    },
+    "eq:kin_circle_shifted": {
+      "file": "chapters/05_kinetic_circle.tex",
+      "number": "5.7",
+      "sha256": "58e95f42d234526a659a74ebebfc2901cf07b0858e4025f72e8b0416c5aa3c6a"
+    },
+    "eq:kin_coeffs": {
+      "file": "chapters/05_kinetic_circle.tex",
+      "number": "5.4",
+      "sha256": "e8a335652f00f2704a7e67ab944f1a536a0dee7a1a0f1343cdf4fe5417bdc9fb"
+    },
+    "eq:kin_inverse_real": {
+      "file": "chapters/05_kinetic_circle.tex",
+      "number": "5.16",
+      "sha256": "37f0ed3f5dc8eb5a8c31695ff56174bda113018cea363d43293db2d0c325c7dd"
+    },
+    "eq:kin_inverse_z": {
+      "file": "chapters/05_kinetic_circle.tex",
+      "number": "5.15",
+      "sha256": "211f30c7cf4defd8519a4c9dd1193894f9e77395e97cd1d1b96a39b5e4065537"
+    },
+    "eq:kin_lambda": {
+      "file": "chapters/05_kinetic_circle.tex",
+      "number": "5.11",
+      "sha256": "91a0d6d2633c1980ab901ef50344369ea1b457d33a437dc92d5ca403ffd907b0"
+    },
+    "eq:kin_spectral": {
+      "file": "chapters/05_kinetic_circle.tex",
+      "number": "5.12",
+      "sha256": "cbb133f5872bfd977ff024e3f3611163c4bd4500ca30a8c7d70841cd4cc63459"
+    },
+    "eq:local_expansion": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.21",
+      "sha256": "f21814c1136081be70c4727280a72aefd3ef7c9d626db3339c27f609048f178e"
+    },
+    "eq:onebody_general": {
+      "file": "chapters/04_microscopic.tex",
+      "number": "4.15",
+      "sha256": "452f2321fae42a2a544f2eceff36e44eddeebcbe7ab32887373906701cc42b0f"
+    },
+    "eq:ou_correlation": {
+      "file": "chapters/07_counterexample.tex",
+      "number": "7.8",
+      "sha256": "3810b3f7f463425463216e795c1d90aecd4dc5d7eed8a6cec0f6d57262ac3867"
+    },
+    "eq:ou_cov": {
+      "file": "chapters/07_counterexample.tex",
+      "number": "7.5",
+      "sha256": "867f4648cf7ca051102774bb77bc633448218a1066ba85ff73ad99b607155e8f"
+    },
+    "eq:ou_defect": {
+      "file": "chapters/07_counterexample.tex",
+      "number": "7.11",
+      "sha256": "1c3740ee24b407d91f91a155c4ffb6ef274ae4644305bc37a0362a836d27f95d"
+    },
+    "eq:ou_eigenvalues": {
+      "file": "chapters/07_counterexample.tex",
+      "number": "7.4",
+      "sha256": "c266e53e338a3e3a9ff309d4df9c78bd70012e6617f95176562ca7d60630507b"
+    },
+    "eq:ou_functions": {
+      "file": "chapters/07_counterexample.tex",
+      "number": "7.3",
+      "sha256": "15bc29639ca69a22c6c0b42a8f1edf062b800e123f1387cadaa46a843c2b1048"
+    },
+    "eq:ou_gk": {
+      "file": "chapters/07_counterexample.tex",
+      "number": "7.9",
+      "sha256": "7bbdb1aa7aca36976d5caccd11c694cf53f335e82bd01b7961842cc9cd0f3abb"
+    },
+    "eq:ou_k": {
+      "file": "chapters/07_counterexample.tex",
+      "number": "7.2",
+      "sha256": "191612898bb9fdfb571bdc9a2cfd70bfd33121726d36c97fd06feab252604738"
+    },
+    "eq:ou_lyapunov": {
+      "file": "chapters/07_counterexample.tex",
+      "number": "7.6",
+      "sha256": "71f3c2738b64654fcc4beb74aba0ba450cf839bbde7f540f51ff9493e9bae911"
+    },
+    "eq:ou_noise": {
+      "file": "chapters/07_counterexample.tex",
+      "number": "7.7",
+      "sha256": "1529127d152583cc7be7165bfed2a76e1c2e05db734f0a5deb01f28ee7fbecc1"
+    },
+    "eq:ou_rigid_k": {
+      "file": "chapters/07_counterexample.tex",
+      "number": "7.14",
+      "sha256": "5b6be7c44362ff0100b32ca6e1823321a0b08229011e74c05dafcd2257fbe575"
+    },
+    "eq:ou_rigid_z": {
+      "file": "chapters/07_counterexample.tex",
+      "number": "7.15",
+      "sha256": "2af5d1272f527d29f823b120734a7ce3277c62f38221908ce945b03ed292c3e0"
+    },
+    "eq:ou_sde": {
+      "file": "chapters/07_counterexample.tex",
+      "number": "7.1",
+      "sha256": "69c28a4f5d145e8f57f71003fa0b2cb0bd8f892fd258bcadc4f2a2004618023f"
+    },
+    "eq:ou_test_grid": {
+      "file": "chapters/07_counterexample.tex",
+      "number": "7.13",
+      "sha256": "4e708fcdd684d6cbe063dfa4d4beb5c7699477e203ef9106656c589dc7e7380b"
+    },
+    "eq:ou_test_params": {
+      "file": "chapters/07_counterexample.tex",
+      "number": "7.12",
+      "sha256": "35e65d2124efed62fbc7f95f7351c716f0038ee270dfce436ad276d83018c8d3"
+    },
+    "eq:ou_z": {
+      "file": "chapters/07_counterexample.tex",
+      "number": "7.10",
+      "sha256": "1c2ce07eed6c07512b4eec2f532b24368b3c42b1867d505d9e9ca46181360f65"
+    },
+    "eq:pair_cycle": {
+      "file": "chapters/04_microscopic.tex",
+      "number": "4.2",
+      "sha256": "31ddc4e65e3f09c6d252cf3966893bff206f9b8775e024b770814bd953740f9c"
+    },
+    "eq:parity_ab": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.19",
+      "sha256": "e083a06c1d0f60a96ab483663bb75519efd44538162b0b8b20a596eb85bfa00a"
+    },
+    "eq:prefactor_model": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.13",
+      "sha256": "09735e39f1aa69b1e3e8230c7c88ea7341f45a28d8569c7e964c01cf32f51a81"
+    },
+    "eq:prefactor_ratio": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.14",
+      "sha256": "955e70a625376227b1c1beb9fce4835f3dd7d5edfe7d7f85e1b7ea6e6c796ce6"
+    },
+    "eq:q_ab": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.9",
+      "sha256": "20de61dfabfd0404d4e8d7bd5ca862a36eb5ac20a568917a19f3c02cc1328bd9"
+    },
+    "eq:quartic_defect": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.24",
+      "sha256": "021e7703443818e719f6421fe8bf26b435c280f3cb905b39e4d6e63256042c5f"
+    },
+    "eq:quartic_drift": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.23",
+      "sha256": "0dc872a3a5e1b40cc2cab4280edff650ca5be373ea991ce35c4b0a468bec16fe"
+    },
+    "eq:regulated_classifier": {
+      "file": "chapters/07_counterexample.tex",
+      "number": "7.20",
+      "sha256": "5f3349d8c39d039f849342bd15a49b29f0eee1e89373cfcae01a99c599df8a67"
+    },
+    "eq:regulated_responses": {
+      "file": "chapters/08_discussion.tex",
+      "number": "8.3",
+      "sha256": "fe13fd96b6539046ed7a1287fa61db8a7f119cdba2745e3a91a51a6b38b0b627"
+    },
+    "eq:resolvent_matrix_element": {
+      "file": "chapters/07_counterexample.tex",
+      "number": "7.17",
+      "sha256": "53dffd3a02a16068deb7259bb564c18c290ab46907364807c2fdbeedb5238d13"
+    },
+    "eq:rg_tangent": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.27",
+      "sha256": "bb753248eaf36cb42a8a9eb0ca1ff77fa39f69cbcec0d70d343df2116138c665"
+    },
+    "eq:rig_anchor": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.2",
+      "sha256": "4127083b1f61533f955bd0a004a08c4ad5de3b34275c748a6852fe6bbe826050"
+    },
+    "eq:rig_circle": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.4",
+      "sha256": "cfa0e5ec7b0cfec509346a8bff6519413069a82513d037c731c8a86f79732365"
+    },
+    "eq:rig_circle_center": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.3",
+      "sha256": "e393009016623a202afdb625c4309e3d9a1135fa52115b2e29d3d57465ef380c"
+    },
+    "eq:rig_delta": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.5",
+      "sha256": "e63799281de1602f9c5cd10b0f1b3015980524293839f7e431e7b9d134a44b16"
+    },
+    "eq:rig_inverse_real": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.6",
+      "sha256": "c5650a0af9ff6bcd75c5a993b11d572a5bccfa8bc9c9464d8401d171decef5d1"
+    },
+    "eq:rig_master_identity": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.7",
+      "sha256": "019ba86ffdd66615f8c05318e9f565d75a7dd1b38a755a8aec12c407ad1bd408"
+    },
+    "eq:rig_theorem": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.8",
+      "sha256": "34ec968b9e259b36dde2b1592e04f82353866c4a66294356cd1bd1c8a2ddb08d"
+    },
+    "eq:rig_z": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.1",
+      "sha256": "2a07f329add4044afad033e57011b3cf764e92e5408f04c0a1db7814109cc22e"
+    },
+    "eq:rigid_manifold": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.26",
+      "sha256": "f58e0e070c1d90f46c81a773e1c5fdb6e46d548e8355ade26a125d46803ced06"
+    },
+    "eq:same_spectrum_matrices": {
+      "file": "chapters/07_counterexample.tex",
+      "number": "7.18",
+      "sha256": "ed2fe6ec376cf6a058d3b2fa2b485fb386e27c981126236b867a541bb3147f02"
+    },
+    "eq:scale_a": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.25",
+      "sha256": "ab6228b3a835da8cc9723c12a866fc7a0b82d2c739f9f8906ccd1e12a5e1b549"
+    },
+    "eq:shear_spectrum": {
+      "file": "chapters/07_counterexample.tex",
+      "number": "7.16",
+      "sha256": "2e455e50078c216d0ce54911b301bc7ba3e2d0bb3851961d9b9cbade3fbe65af"
+    },
+    "eq:theta_def": {
+      "file": "chapters/04_microscopic.tex",
+      "number": "4.9",
+      "sha256": "8751affa978fba00a38eed739fac070532e473493b27d987dd0722ee2fdc476e"
+    },
+    "eq:theta_involution": {
+      "file": "chapters/04_microscopic.tex",
+      "number": "4.10",
+      "sha256": "fd19d3334572d5735d99b6f1f64280b5fa92c0bb9ab7655712158ab49e2c491b"
+    },
+    "eq:theta_reversor": {
+      "file": "chapters/04_microscopic.tex",
+      "number": "4.11",
+      "sha256": "c14388886349e0fd24aa0e5c5efd534b6bbf6c7bc8f0e54f0b9866622a57c2aa"
+    },
+    "eq:theta_time": {
+      "file": "chapters/04_microscopic.tex",
+      "number": "4.12",
+      "sha256": "7cc08a08d749fef6187c504852e207aab52e1e4b64073521b86a9c033c234428"
+    },
+    "eq:transport_grid_count": {
+      "file": "chapters/05_kinetic_circle.tex",
+      "number": "5.13",
+      "sha256": "a3c85d2917841fd9b1c95a8f8c3ddd80b25ffdd9357b167ff0b32343c1577f07"
+    },
+    "eq:triple_swap": {
+      "file": "chapters/04_microscopic.tex",
+      "number": "4.3",
+      "sha256": "a159dfed571866a1922496c356a4280d8452455b43670f5058343b2658e2fafe"
+    },
+    "eq:velocity_reversal": {
+      "file": "chapters/04_microscopic.tex",
+      "number": "4.7",
+      "sha256": "67a823d9c4bae0488cc6b60cd42fe2e6a91342d5040113909ea1c807738dfded"
+    },
+    "eq:z_ab": {
+      "file": "chapters/06_rigidity.tex",
+      "number": "6.11",
+      "sha256": "c7cbe2e00a23efb76ee8fb484ca6f447f89b4581a0ca034a2f355bb0bef4161f"
+    },
+    "eq:zb_def": {
+      "file": "chapters/05_kinetic_circle.tex",
+      "number": "5.10",
+      "sha256": "6b59317a4075aa2e70ff8d1811e0d2d545893894be0a934405b2e6a15e4a89b5"
+    }
+  },
+  "schema": 1
+}

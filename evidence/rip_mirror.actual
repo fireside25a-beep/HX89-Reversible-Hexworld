@@ -1,0 +1,7 @@
+HEXWORLD_ENTER semantic=HX87SEM3 dims=5 q2=25 epoch=0
+HX89 seed=1 cells=3
+ARIP5_HOST=0000000000402432
+RIP5_MIRROR=(0,0,0,0,0)
+RIP5_HEX=(1074,1026,0,0,0)
+RIP5_OBSERVE op=8 q=6
+HX89 halt steps=3 heads=1 nodes=0 stack=0 hash=19d7728591125225

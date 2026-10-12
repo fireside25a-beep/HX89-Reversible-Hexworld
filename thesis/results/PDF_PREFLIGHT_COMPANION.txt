@@ -1,0 +1,6 @@
+PDF: dist/Alex_Moraru_Thesis_Companion.pdf
+Pages: 5
+Encrypted: False
+Openable (PyMuPDF): True
+Likely scanned: False
+XFA present: False

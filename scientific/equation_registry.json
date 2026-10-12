@@ -1,0 +1,23 @@
+{
+  "anchored_circle": "(x-\\tfrac{x_0}{2})^2+y^2=(\\tfrac{x_0}{2})^2",
+  "commutant": "M=aI+bJ,\\qquad J=\\begin{pmatrix}0&-1\\\\1&0\\end{pmatrix},\\qquad J^2=-I",
+  "curvature": "\\kappa(0)=-2a_0-\\frac{a_0^2a^{\\prime\\prime}(0)}{[b^{\\prime}(0)]^2}",
+  "echo": "\\Theta_\\chi F_\\chi^t\\Theta_\\chi F_\\chi^t=I",
+  "fhp_A": "A=\\frac{1}{2D}",
+  "fhp_D": "D=\\rho\\left(1-\\tfrac{\\rho}{6}\\right)^3",
+  "fhp_complex_response": "Z_{\\mathrm B}=\\bar\\eta+i\\eta_{\\mathrm H}=\\frac{A}{1+i u}=-\\frac{1}{4\\lambda^*}",
+  "fhp_eta_h": "\\eta_{\\mathrm H}=-\\frac{Au}{1+u^2}",
+  "fhp_eta_shifted": "\\bar\\eta=\\frac{A}{1+u^2}",
+  "fhp_lambda": "\\lambda=-\\frac{D}{2}\\left(1-i u\\right)",
+  "fhp_u": "u=\\frac{2\\sqrt3}{3}\\left(p-\\tfrac12\\right)",
+  "inverse_response": "Q=\\frac1Z=a+ib",
+  "kernel_defect": "\\Delta=\\frac{a_0-a}{a_0(a^2+b^2)}",
+  "normalized_defect": "\\frac{\\Delta}{|Z|^2}=1-x_0\\operatorname{Re}\\!\\left(\\frac1Z\\right)",
+  "ou_defect": "\\Delta(d)=-\\frac{\\epsilon d^2}{a_0\\{(a_0+\\epsilon d^2)^2+c^2d^2\\}}",
+  "ou_kernel": "K(d)=(a_0+\\epsilon d^2)I+cdJ",
+  "ou_noise": "BB^T=2A(a_0+\\epsilon d^2)I",
+  "response_defect": "\\Delta=x^2+y^2-x_0x",
+  "reversor": "\\Theta_\\chi F_\\chi\\Theta_\\chi=F_\\chi^{-1}",
+  "rigidity": "\\operatorname{Re}\\!\\left(\\frac1{Z(p)}\\right)=\\operatorname{Re}\\!\\left(\\frac1{Z(p_0)}\\right)",
+  "transport_circle": "(\\eta+\\tfrac18-\\tfrac A2)^2+\\eta_{\\mathrm H}^2=(\\tfrac A2)^2"
+}

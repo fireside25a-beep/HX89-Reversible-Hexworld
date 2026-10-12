@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this repository, cite the repository and the primary sources listed in REFERENCES.md."
+title: "CRTC Response Rigidity"
+type: software
+authors:
+  - family-names: Moraru
+    given-names: Alexandru
+version: 1.0.0
+date-released: 2026-09-27
+license: Apache-2.0

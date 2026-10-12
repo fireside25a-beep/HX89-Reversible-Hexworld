@@ -1,0 +1,6 @@
+noise_rms_pcm_counts,trials,correct_payload,crc_or_signal_reject,undetected_wrong_payload
+0,10,10,0,0
+600,10,10,0,0
+1500,10,10,0,0
+3000,10,10,0,0
+6000,10,0,10,0

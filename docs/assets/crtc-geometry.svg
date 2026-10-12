@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-label="CRTC inverse-response geometry">
+  <rect width="1200" height="520" fill="#000"/>
+  <g fill="none" stroke="#fff" stroke-width="2">
+    <rect x="40" y="40" width="1120" height="440" rx="8"/>
+    <path d="M110 405H520M160 450V92" opacity=".55"/>
+    <circle cx="340" cy="270" r="180"/>
+    <circle cx="160" cy="270" r="4" fill="#fff"/><circle cx="520" cy="270" r="4" fill="#fff"/>
+    <path d="M650 405H1080M700 450V92" opacity=".55"/>
+    <path d="M870 105V430"/>
+    <path d="M520 270C590 270 610 270 650 270" stroke-dasharray="7 7" opacity=".6"/>
+  </g>
+  <g fill="#fff" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">
+    <text x="70" y="78" font-size="22" font-weight="700">CRTC GEOMETRY</text>
+    <text x="340" y="120" font-size="15" text-anchor="middle">Z = η_shift + iη_H</text>
+    <text x="340" y="465" font-size="13" text-anchor="middle" opacity=".7">anchored response circle</text>
+    <text x="890" y="120" font-size="15">Q = 1 / Z = a + ib</text>
+    <text x="885" y="455" font-size="13" text-anchor="middle" opacity=".7">rigid manifold: Re(Q) = a₀</text>
+    <text x="600" y="250" font-size="13" text-anchor="middle" opacity=".7">complex inversion</text>
+  </g>
+</svg>

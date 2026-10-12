@@ -1,0 +1,35 @@
+{
+  "author": "Alex Moraru",
+  "machine": {
+    "chiral_global_states": 16777216,
+    "chiral_local_states": 64,
+    "corr_minus_ab": 229376,
+    "corr_minus_ba": -229376,
+    "corr_plus_ab": 720896,
+    "corr_plus_ba": -720896,
+    "entropy_regression_coordinate": [
+      0,
+      0,
+      0,
+      0,
+      2
+    ],
+    "entropy_regression_seed": 12345,
+    "entropy_signed_branches": 10
+  },
+  "project": "HX89",
+  "status": {
+    "green_kubo_survival_in_correlated_fhp": "open",
+    "microscopic_reversor": "proved from local identities and machine certified on the complete 2x2 torus",
+    "response_rigidity_classification": "proved exactly for nonzero complex response with the stated anchor",
+    "transport_circle_boltzmann": "exact derived corollary of published molecular-chaos coefficients",
+    "ward_identity_protection": "not established"
+  },
+  "transport": {
+    "canonical_exact_parameter_triples": 3575,
+    "counterexample_exact_points": 1001,
+    "counterexample_nonzero_defects": 1000,
+    "crtc_exact_rational_points": 9595,
+    "crtc_tests": 35
+  }
+}

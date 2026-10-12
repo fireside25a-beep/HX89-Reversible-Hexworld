@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crtc-response-rigidity"
+version = "1.0.0"
+description = "Exact structural classification tests for circle rigidity of shear/Hall response"
+requires-python = ">=3.10"
+dependencies = ["sympy==1.14.0", "mpmath==1.3.0"]
+license = {text = "Apache-2.0"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

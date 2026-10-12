@@ -1,0 +1,146 @@
+\chapter{Proof Details}\label{app:proofs}
+
+\section{Anchored circle and inverse response}
+Let $Z=x+iy\ne0$ and let $Z_0=x_0>0$. The circle with diameter $[0,x_0]$ is
+\begin{equation}
+ \left(x-\frac{x_0}{2}\right)^2+y^2=\left(\frac{x_0}{2}\right)^2.
+ \label{eq:app_circle}
+\end{equation}
+Expansion gives
+\begin{equation}
+ x^2+y^2-x_0x=0.
+ \label{eq:app_delta_zero}
+\end{equation}
+Since
+\begin{equation}
+ \frac1Z=\frac{x-iy}{x^2+y^2},
+ \label{eq:app_inverse}
+\end{equation}
+we have
+\begin{equation}
+ \RePart\!\left(\frac1Z\right)=\frac{x}{x^2+y^2}.
+ \label{eq:app_inverse_real}
+\end{equation}
+Therefore \cref{eq:app_delta_zero} is equivalent to
+\begin{equation}
+ 1=x_0\RePart\!\left(\frac1Z\right).
+ \label{eq:app_classifier}
+\end{equation}
+At the anchor, $1/Z_0=1/x_0$, completing the proof of \cref{eq:rig_theorem}.
+
+If $1/Z=a+ib$, then $x=a/(a^2+b^2)$ and $|Z|^2=1/(a^2+b^2)$. With $x_0=1/a_0$,
+\begin{align}
+ \Delta
+ &=\frac1{a^2+b^2}
+ -\frac1{a_0}\frac{a}{a^2+b^2}\\
+ &=\frac{a_0-a}{a_0(a^2+b^2)},
+\end{align}
+which is \cref{eq:defect_ab}.
+
+\section{Commutant of the shear representation}
+For the $120$ degree shear representation matrix
+\begin{equation}
+ R=\begin{pmatrix}
+ -1/2&-\sqrt3/2\\
+ \sqrt3/2&-1/2
+ \end{pmatrix}
+\end{equation}
+and a generic real matrix
+\begin{equation}
+ M=\begin{pmatrix}r&s\\t&u\end{pmatrix},
+\end{equation}
+the equation $MR-RM=0$ has two independent scalar constraints:
+\begin{equation}
+ r-u=0,
+ \qquad
+ s+t=0.
+\end{equation}
+Thus $M=rI-sJ$ with $J^2=-I$. The independent symbolic audit obtains the same solution with no import from the project response code.
+
+\section{Curvature at the parity anchor}
+Write
+\begin{equation}
+ a(d)=a_0+\frac12a_2d^2+O(d^4),
+ \qquad
+ b(d)=b_1d+O(d^3),
+\end{equation}
+and
+\begin{equation}
+ Z(d)=\frac{a(d)-ib(d)}{a(d)^2+b(d)^2}.
+\end{equation}
+Parity implies $x'(0)=0$ and $y''(0)=0$. Direct differentiation gives
+\begin{equation}
+ y'(0)=-\frac{b_1}{a_0^2}
+\end{equation}
+and
+\begin{equation}
+ x''(0)=-\frac{a_2}{a_0^2}-\frac{2b_1^2}{a_0^3}.
+\end{equation}
+Using the signed curvature definition \cref{eq:curvature_general},
+\begin{equation}
+ \kappa(0)=
+ \frac{-y'(0)x''(0)}{|y'(0)|^3}.
+\end{equation}
+For $b_1>0$, this reduces to
+\begin{equation}
+ \kappa(0)=-2a_0-\frac{a_0^2a_2}{b_1^2}.
+\end{equation}
+Changing the orientation changes the overall sign, not the magnitude of the curvature or the dependence on $a_2$.
+
+\section{Quartic drift witness}
+For $a(d)=a_0+\epsilon d^4$ and $b(d)=cd$, the second derivative $a''(0)$ vanishes, so the achiral curvature equals the rigid circle value. The exact defect is nevertheless
+\begin{equation}
+ \Delta(d)=
+ -\frac{\epsilon d^4}
+ {a_0[(a_0+\epsilon d^4)^2+c^2d^2]}.
+\end{equation}
+For $a_0>0$, $\epsilon\ne0$, and any nonzero $d$ for which the denominator is finite, the defect is nonzero. This proves that achiral curvature is not a complete global membership test.
+
+\section{Published kinetic circle}
+With $x=A/(1+u^2)$ and $y=-Au/(1+u^2)$,
+\begin{equation}
+ x^2+y^2
+ =\frac{A^2+A^2u^2}{(1+u^2)^2}
+ =\frac{A^2}{1+u^2}=Ax.
+\end{equation}
+The kinetic circle follows without approximation after the published coefficients are accepted as the starting expressions.
+
+For the eigenvalue
+\begin{equation}
+ \lambda=-\frac{D}{2}+i\frac{\sqrt3D}{3}d,
+\end{equation}
+we have
+\begin{align}
+ -\frac1{4\lambda^*}
+ &=\frac{1}{2D}\frac{1-i(2\sqrt3/3)d}{1+(4/3)d^2}\\
+ &=\bar\eta+i\eta_H,
+\end{align}
+which proves the spectral relation used by the exact test.
+
+\section{OU stationary covariance and Green Kubo integral}
+For $K=aI+bJ$ and $C=AI$,
+\begin{align}
+ KC+CK^T
+ &=A(aI+bJ)+A(aI-bJ)\\
+ &=2AaI.
+\end{align}
+If $a>0$, this covariance is positive definite. Since the eigenvalues $a\pm ib$ have positive real part,
+\begin{equation}
+ \int_0^\infty \e^{-Kt}\,\dd t=K^{-1}.
+\end{equation}
+Multiplying by $C$ yields \cref{eq:ou_gk}. No numerical quadrature is needed.
+
+\section{Same spectrum, different response matrix element}
+Similarity preserves the characteristic polynomial, so the matrices $L_1$ and $L_2$ in \cref{eq:same_spectrum_matrices} have identical eigenvalues. Explicitly,
+\begin{equation}
+ L_2=\begin{pmatrix}1&1\\0&2\end{pmatrix},
+ \qquad
+ L_2^{-1}=\begin{pmatrix}1&-1/2\\0&1/2\end{pmatrix}.
+\end{equation}
+For $g=(1,0)$ and $h=(0,1)^T$,
+\begin{equation}
+ gL_1^{-1}h=0,
+ \qquad
+ gL_2^{-1}h=-\frac12.
+\end{equation}
+Thus an unordered eigenvalue list cannot determine the resolvent matrix element without overlap information.

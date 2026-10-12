@@ -1,0 +1,139 @@
+\chapter{Exact Microscopic Reciprocity in the Deterministic Chiral Gas}\label{ch:microscopic}
+
+\section{Chapter aim}
+This chapter establishes the claims that belong entirely to the defined HX89 microscopic objects. No viscosity coefficient is used. The purpose is to isolate what can be proved from the collision table, streaming map, reflection, and velocity reversal before any kinetic closure is introduced.
+
+\section{State space and collision map}
+Each lattice site carries six Boolean occupations, one for each velocity direction of the hexagonal lattice. A local state is therefore an integer in $\{0,\ldots,63\}$ or, equivalently, a vector in $\{0,1\}^6$. The deterministic chirality variable is
+\begin{equation}
+ \chi\in\{-1,+1\}.
+ \label{eq:chi_endpoint}
+\end{equation}
+The two endpoint collision maps are permutations. In the positive chirality convention the nontrivial two particle pair cycle is
+\begin{equation}
+ 9\mapsto18\mapsto36\mapsto9,
+ \label{eq:pair_cycle}
+\end{equation}
+and the complementary three particle pair is exchanged,
+\begin{equation}
+ 21\leftrightarrow42.
+ \label{eq:triple_swap}
+\end{equation}
+All other local states are fixed by the chiral component of the table. The negative chirality collision is the inverse permutation,
+\begin{equation}
+ C_{-}=C_{+}^{-1}.
+ \label{eq:collision_inverse}
+\end{equation}
+The precise executable definition is in \texttt{src/chiral\_law.c}; the description here records the algebraic structure rather than replacing the source.
+
+A full time step first applies the local collision at every site and then streams each occupied velocity channel to the neighboring site indicated by its velocity. On a finite periodic axial torus,
+\begin{equation}
+ F_\chi=S C_\chi.
+ \label{eq:full_step}
+\end{equation}
+Both $C_\chi$ and $S$ are bijections, hence $F_\chi$ is a bijection of the finite configuration space.
+
+\section{Reflection and velocity reversal}
+Let $P$ denote the axial reflection implemented by the reference oracle. In axial lattice coordinates it acts on position as
+\begin{equation}
+ P:(x,y)\mapsto(x+y,-y),
+ \label{eq:axial_reflection}
+\end{equation}
+and it reverses the angular index of the velocity channel. Let $V$ be velocity reversal,
+\begin{equation}
+ V:i\mapsto i+3\pmod 6.
+ \label{eq:velocity_reversal}
+\end{equation}
+Both maps are involutions. Direct examination of the local table gives the mirror chirality relation
+\begin{equation}
+ P C_{+} P=C_{-},
+ \label{eq:collision_mirror}
+\end{equation}
+while spatial reflection conjugates streaming into the reflected streaming map in the corresponding channel coordinates.
+
+The naive composition $PV$ does not by itself provide the required reversor for the collision then streaming ordering. The collision order matters. The exact involution is collision dressed.
+
+\section{Collision dressed reversor}
+Define
+\begin{equation}
+ \Theta_\chi=C_{-\chi}PV.
+ \label{eq:theta_def}
+\end{equation}
+The local permutation identities and the relation between streaming and velocity reversal imply
+\begin{equation}
+ \Theta_\chi^2=I
+ \label{eq:theta_involution}
+\end{equation}
+and
+\begin{equation}
+ \Theta_\chi F_\chi\Theta_\chi=F_\chi^{-1}.
+ \label{eq:theta_reversor}
+\end{equation}
+The proof is a composition proof. It does not rely on sampling trajectories. Once \cref{eq:theta_involution,eq:theta_reversor} hold, induction gives
+\begin{equation}
+ \Theta_\chi F_\chi^t\Theta_\chi=F_\chi^{-t}
+ \label{eq:theta_time}
+\end{equation}
+for every integer $t$, and therefore
+\begin{equation}
+ \Theta_\chi F_\chi^t\Theta_\chi F_\chi^t=I.
+ \label{eq:echo_identity}
+\end{equation}
+The last identity is the exact echo theorem used by the executable tests.
+
+This result is sometimes easy to misdescribe. It is not ordinary time reversal under $V$ alone, and it does not assert detailed balance for a stochastic transition matrix. It is a deterministic reversor identity for the stated endpoint map. The collision dressing is essential because the forward map is ordered as collision followed by streaming.
+
+\section{Reflection and chirality reciprocity}
+Reflection changes chirality. At the full map level the implemented identities imply
+\begin{equation}
+ P F_{+} P=F_{-}
+ \label{eq:full_mirror}
+\end{equation}
+with the coordinate conventions of the executable oracle. If an ensemble measure is invariant under the relevant reflected mapping and observables have definite parity, correlation functions inherit a reciprocity relation between the two chiralities. The repository verifies a finite correlation witness in the exhaustive C certificate and checks the general map identities independently in Python.
+
+This distinction between map reciprocity and ensemble reciprocity is important. The first is an identity of deterministic maps. The second also depends on how configurations are weighted. A correlation identity should therefore state its measure assumptions explicitly rather than treating them as automatic consequences of the collision permutation.
+
+\section{One body collision invariants}
+The collision table conserves particle number and the two components of lattice momentum. The independent Python oracle constructs the linear system for all one body quantities
+\begin{equation}
+ I(n)=\sum_{i=0}^{5}c_i n_i
+ \label{eq:onebody_general}
+\end{equation}
+that are unchanged by every local collision. Exact rational row reduction yields a three dimensional invariant space. A basis can be chosen as total occupation and the two momentum components.
+
+This is stronger than checking several expected invariants and weaker than classifying every possible nonlinear invariant. It states exactly that the vector space of one body linear collision invariants for the implemented local table has rank three.
+
+\section{Exhaustive finite state certificate}
+The standalone program \texttt{bin/hx89-chiral-proof} constructs the complete periodic $2\times2$ lattice. Four sites with six Boolean channels produce $24$ bits and therefore
+\begin{equation}
+ 2^{24}=\HXGlobalStates{}
+ \label{eq:global_state_count}
+\end{equation}
+configurations. The certificate enumerates all of them for both endpoint chiralities and checks the mirror chirality relation, the involution property, the dressed reversor, the echo, and a correlation reciprocity witness. The local collision table separately contains \HXLocalStates{} states.
+
+The present evidence file records the certificate line
+\begin{quote}\ttfamily
+CHIRAL\_LAW\_PASS local\_states=64 global\_states=16777216 mirror\_chirality=PASS theta\_involution=PASS dressed\_PT\_reversor=PASS echo=PASS correlation\_reciprocity=PASS both\_chiralities=PASS
+\end{quote}
+The full line, including exact correlation numerators and denominators, is preserved in \texttt{evidence/chiral\_law\_certificate.txt} rather than duplicated as a manually maintained number in the prose.
+
+Exhausting a $2\times2$ torus does not by itself prove an identity on every lattice size. Here the finite exhaustive certificate serves as an implementation witness for the local and composed maps. The size independent theorem comes from the operator identities in \cref{eq:theta_involution,eq:theta_reversor}. The independent larger torus oracle is a further check that the implementation of those identities is not accidentally tied to the enumerated lattice.
+
+\section{Entropy Polyform termination regression}
+The repository also contains a five dimensional sparse Polyform example in which an entropy instruction chooses one of ten signed spatial directions from the origin. A previous failure mode occurred when the emitted branch advanced into a coordinate with no defined sparse cell. For seed $12345$ the branch selected the fifth positive axis, emitted its axis letter, and advanced to $(0,0,0,0,2)$.
+
+The corrected program defines an explicit zero opcode HALT cell at each of the ten signed distance two endpoints. The regression test checks seed $12345$ and then covers all ten direction and sign outcomes. The semantic point is narrow but useful: intentional termination is represented by an actual cell, while a genuinely missing sparse cell remains an error. The runtime is not changed to suppress out of bounds execution globally.
+
+This regression is not part of the chiral fluid theorem. It is included in the same verification tree because the user facing repository combines the machine framework and the transport research. The thesis treats it as engineering evidence, not physics evidence.
+
+\section{What the microscopic theorem does not imply}
+Three deductions are explicitly excluded.
+
+First, the endpoint theorem does not generate the continuous probability parameter $p$ used by the chiral FHP molecular chaos model. A deterministic map at $\chi=\pm1$ is not an exhaustive sample of a stochastic or mixed collision family.
+
+Second, the reversor does not force a specific value of a viscosity. Transport coefficients depend on correlation functions and projections onto hydrodynamic sectors. Exact reversibility can constrain those correlations without fixing the real part of the inverse shear response as chirality changes.
+
+Third, the finite state certificate does not remove long time hydrodynamic effects. A finite deterministic automaton is periodic at sufficiently long time because its configuration space is finite, while a hydrodynamic limit concerns a scaling regime of size and time. Those are different mathematical statements.
+
+\section{Chapter conclusion}
+The deterministic endpoint gas has an exact collision dressed reversor, mirror chirality reciprocity, and precisely three one body linear collision invariants. These results are established independently of any transport closure. They provide a controlled microscopic foundation for discussing chirality, but they do not prove a transport circle. The next chapter introduces the published continuous chiral FHP kinetic theory and shows exactly where its circle comes from.

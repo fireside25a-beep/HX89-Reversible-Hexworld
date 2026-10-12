@@ -1,0 +1,21 @@
+=== dist/Alex_Moraru_Thesis.pdf ===
+Title:           Alex Moraru Thesis: Exact Microscopic Reciprocity and Response Rigidity in Chiral Hexagonal Lattice Gases
+Author:          Alex Moraru
+Pages:           76
+Page size:       595.276 x 841.89 pts (A4)
+File size:       402665 bytes
+PDF version:     1.7
+=== dist/Alex_Moraru_Thesis_Companion.pdf ===
+Title:           Alex Moraru Thesis Companion
+Author:          Alex Moraru
+Pages:           5
+Page size:       595.276 x 841.89 pts (A4)
+File size:       176397 bytes
+PDF version:     1.7
+=== dist/CRTC_Response_Rigidity.pdf ===
+Title:           
+Author:          
+Pages:           4
+Page size:       612 x 792 pts (letter)
+File size:       183131 bytes
+PDF version:     1.7

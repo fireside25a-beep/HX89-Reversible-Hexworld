@@ -1,0 +1,5 @@
+HEXWORLD_ENTER semantic=HX87SEM3 dims=5 q2=25 epoch=0
+HX89 seed=12345 cells=4
+SNAPSHOT hx89.state bytes=420760
+S
+HX89 halt steps=4 heads=1 nodes=0 stack=0 hash=495f2a06e8bb1b24

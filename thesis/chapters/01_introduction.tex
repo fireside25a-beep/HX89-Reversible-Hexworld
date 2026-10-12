@@ -1,0 +1,144 @@
+\chapter{Introduction}\label{ch:introduction}
+
+\section{Question and motivation}
+Transport theory usually introduces shear viscosity and Hall viscosity as distinct coefficients with different symmetry properties. The first coefficient multiplies a dissipative shear response. The second is parity odd and reactive in the standard two dimensional constitutive setting \cite{Avron1998,Banerjee2017,FruchartReview2023}. In a microscopic model that breaks parity, both coefficients can depend on the same chirality control parameter. Nothing in their definitions alone requires that dependence to trace a simple geometric curve.
+
+A recent chiral extension of the \gls{fhp} lattice gas provides a useful case. Allocca \etal\ derived closed kinetic expressions for the shear and Hall viscosities and verified their hydrodynamic consequences with cellular automaton simulations \cite{Allocca2026}. At fixed density, those published expressions can be rewritten so that the shifted shear viscosity and Hall viscosity lie exactly on a circle. The circle is therefore not a numerical fit. It is an algebraic consequence of the kinetic formulas.
+
+The natural next question is more difficult. Does the same circle survive when molecular chaos is not assumed and transport is defined from the correlated dynamics? That question matters because two dimensional lattice gases have known hydrodynamic long time correlations \cite{Naitoh1990,ErnstDufty1989}. Correlations can alter dissipative transport, and the limiting value of a zero frequency Green Kubo coefficient can depend on how time, size, and frequency limits are taken. A statement about a renormalized transport circle must therefore be formulated at the level of response structure, not as a request to remove physical correlations from a simulation.
+
+This thesis changes the problem from a direct search for a circle to a classification problem. The object of study is the \gls{responsemap}
+\begin{equation}
+ Z(p)=\bar\eta(p)+i\eta_H(p),
+ \label{eq:intro_response}
+\end{equation}
+where $p$ is a chirality parameter and $\bar\eta$ denotes the shear coordinate after any explicitly stated lattice shift. The central question is:
+
+\begin{quote}
+Which structural property of the inverse response is necessary and sufficient for $Z(p)$ to remain on the parity anchored transport circle, and which admissible response families violate that property?
+\end{quote}
+
+This formulation separates geometry from microscopic closure. It can be applied to a kinetic collision matrix, a finite system Green Kubo resolvent, an effective frequency dependent response, or another calculation of the same complex shear sector.
+
+\section{Research questions}
+The thesis addresses five linked questions.
+
+\begin{enumerate}[label=\arabic*.]
+\item What exact reciprocity statements hold for the deterministic chiral endpoint automata implemented in HX89?
+\item How does the published chiral FHP kinetic theory generate a transport circle, and what part of that result is simply complex inversion of a shear eigenvalue?
+\item What is the exact, closure independent condition for membership in the anchored response circle?
+\item Does sixfold rotational symmetry, reflection covariance, or positive dissipation enforce that condition?
+\item What additional information is required before a statement about a collision spectrum becomes a statement about a Green Kubo transport coefficient?
+\end{enumerate}
+
+These questions are deliberately ordered from exact microscopic dynamics to response geometry. The order prevents a common logical inversion in which a macroscopic pattern is used to infer a microscopic protection mechanism that has not been proved.
+
+\section{Main results}
+The first result is an exact microscopic reciprocity theorem for the deterministic six channel gas used in the repository. Let $C_\chi$ be the local collision permutation at chirality $\chi\in\{-1,+1\}$, let $S$ be toroidal streaming, and let
+\begin{equation}
+ F_\chi=S C_\chi.
+ \label{eq:intro_f}
+\end{equation}
+With the reflection $P$ and velocity reversal $V$ defined in \cref{ch:microscopic}, the collision dressed involution
+\begin{equation}
+ \Theta_\chi=C_{-\chi}PV
+ \label{eq:intro_theta}
+\end{equation}
+satisfies
+\begin{equation}
+ \Theta_\chi^2=I,
+ \qquad
+ \Theta_\chi F_\chi\Theta_\chi=F_\chi^{-1}.
+ \label{eq:intro_reversor}
+\end{equation}
+Consequently $\Theta_\chi F_\chi^t\Theta_\chi F_\chi^t=I$ for every integer $t$. The local collision table contains \HXLocalStates{} states. The standalone C certificate checks all \HXGlobalStates{} states of the complete $2\times2$ six channel torus for both chiralities, while an independent Python oracle checks larger tori and multiple echo times. These computations verify the finite implementations; the all time statement itself follows from the operator identities.
+
+The second result is a reconstruction of the published molecular chaos transport circle. With
+\begin{equation}
+ D=\rho\left(1-\frac{\rho}{6}\right)^3,
+ \quad
+ d=p-\frac12,
+ \quad
+ A=\frac{1}{2D},
+ \quad
+ u=\frac{2\sqrt3}{3}d,
+ \label{eq:intro_fhp_defs}
+\end{equation}
+the zero field kinetic coefficients of Allocca \etal\ can be expressed as
+\begin{equation}
+ \bar\eta=\frac{A}{1+u^2},
+ \qquad
+ \eta_H=-\frac{Au}{1+u^2}.
+ \label{eq:intro_fhp_coeffs}
+\end{equation}
+Eliminating $u$ gives
+\begin{equation}
+ \bar\eta^2+\eta_H^2=A\bar\eta.
+ \label{eq:intro_boltz_circle}
+\end{equation}
+The repository checks the zero field identity, its spectral form, and the stated weak field image over \HXTransportGridPoints{} exact rational parameter triples in $\mathbb{Q}(\sqrt3)$. A separate exact grid in the CRTC module checks \CRTCBoltzmannGridPoints{} zero field points. The counts refer to different finite domains and are not combined.
+
+The third result is the response rigidity theorem. Let $Z(p)\ne0$, let the parity symmetric anchor be $p_0$, and assume $Z(p_0)=x_0>0$. Define
+\begin{equation}
+ \Delta(p)=|Z(p)|^2-x_0\RePart Z(p).
+ \label{eq:intro_defect}
+\end{equation}
+Then
+\begin{equation}
+ \frac{\Delta(p)}{|Z(p)|^2}
+ =1-x_0\RePart\!\left(\frac{1}{Z(p)}\right).
+ \label{eq:intro_inverse_identity}
+\end{equation}
+Since $x_0^{-1}=\RePart[1/Z(p_0)]$, the circle condition $\Delta=0$ is exactly equivalent to
+\begin{equation}
+ \RePart\!\left(\frac1{Z(p)}\right)
+ =\RePart\!\left(\frac1{Z(p_0)}\right).
+ \label{eq:intro_rigidity}
+\end{equation}
+No fixed kinetic prefactor is required. If $1/Z=a+i b$ and $a_0=1/x_0$, then
+\begin{equation}
+ \Delta=\frac{a_0-a}{a_0(a^2+b^2)}.
+ \label{eq:intro_defect_ab}
+\end{equation}
+This yields a complete two class partition for membership in this specific anchored circle: constant $a$ is the rigid class, while any nonzero drift of $a$ is the nonrigid class. The statement does not classify every possible curve in the response plane, and it does not say that constant curvature by itself is sufficient.
+
+The fourth result identifies what symmetry does and does not supply. The real commutant of the nontrivial $C_6$ action on the two component shear doublet is
+\begin{equation}
+ M=aI+bJ,
+ \qquad
+ J=\begin{pmatrix}0&-1\\1&0\end{pmatrix},
+ \qquad J^2=-I.
+ \label{eq:intro_commutant}
+\end{equation}
+Reflection makes $a$ even and $b$ odd about the achiral point, but it permits even drift in $a$. Thus $C_6$ symmetry explains the complex scalar form of the response sector, not its rigidity.
+
+The fifth result is an explicit correlated counterexample. A stationary two component Ornstein Uhlenbeck process with drift matrix $K=a(d)I+b(d)J$, covariance $C=AI$, and
+\begin{equation}
+ a(d)=a_0+\epsilon d^2,
+ \qquad
+ b(d)=cd,
+ \label{eq:intro_ou}
+\end{equation}
+has positive dissipation for $a_0,\epsilon>0$, an exact Green Kubo integral $R=K^{-1}C$, and a normalized defect
+\begin{equation}
+ \Delta(d)=
+ -\frac{\epsilon d^2}
+ {a_0\left[(a_0+\epsilon d^2)^2+c^2d^2\right]}.
+ \label{eq:intro_ou_defect}
+\end{equation}
+It is zero only at the achiral point. The executable exact test evaluates \CRTCCounterGridPoints{} rational points and obtains \CRTCCounterOffCircle{} strict off circle witnesses. A rigid positive dissipation family is obtained by setting $\epsilon=0$. The two classes are therefore both nonempty in a correlated stationary response problem.
+
+\section{Scope of the contribution}
+Three boundaries are essential.
+
+First, the deterministic HX89 code implements the endpoint chiralities $\chi=\pm1$. It does not implement the continuous probability $p$ used in the published molecular chaos family. The exhaustive $2^{24}$ certificate therefore proves finite state identities of the endpoint automata; it does not prove a statement for every $p$.
+
+Second, the response rigidity theorem is algebraic. It decides circle membership once the actual complex response $Z$ is known. It does not by itself prove that a particular correlated microscopic model has constant inverse dissipative part.
+
+Third, the defect formula is not presented as a Ward identity. Genuine Ward identities arise from a specified symmetry or conservation law and relate response functions accordingly \cite{Bradlyn2012}. Sixfold rotation gives the normal form in \cref{eq:intro_commutant}, but no conservation law is proved here that forces $a(p)$ to equal its achiral value at every scale.
+
+\section{Organization of the thesis}
+\Cref{ch:literature} reviews lattice gas hydrodynamics, Green Kubo transport, odd viscosity, and the published chiral FHP model. \Cref{ch:methodology} defines the evidence hierarchy and reproducibility discipline. \Cref{ch:microscopic} proves the deterministic endpoint reciprocity results. \Cref{ch:kinetic} reconstructs the kinetic transport circle and its spectral form. \Cref{ch:rigidity} proves the closure free classification, the symmetry normal form, and the curvature statements. \Cref{ch:counterexample} constructs the correlated counterexample and analyzes what spectral data can decide. \Cref{ch:discussion} states the remaining Green Kubo problem and its finite regulator formulation. \Cref{ch:conclusion} summarizes what is established and what remains open. The appendices contain proof details, machine definitions, the reproducibility manifest, an adversarial scope audit, and a claim evidence matrix.
+
+\section{Chapter conclusion}
+The thesis does not start by assuming that a transport circle survives correlations. It asks what exact property would make survival unavoidable and what admissible dynamics can violate that property. The answer is phrased in the measured inverse response. This provides a strict boundary between an exact structural theorem and the still open correlated chiral FHP question, which is the organizing principle for the chapters that follow.

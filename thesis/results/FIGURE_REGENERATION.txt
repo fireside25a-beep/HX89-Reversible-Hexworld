@@ -1,0 +1,1 @@
+PASS: analytic figures regenerated from stated equations

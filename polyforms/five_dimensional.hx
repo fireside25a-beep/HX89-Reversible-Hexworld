@@ -1,0 +1,12 @@
+HX87P1
+# Travel +Z, +W, +V, -Y, then halt.
+CELL 0 0 0 0 0 2 2 1 0
+CELL 0 0 1 0 0 1 90 0 0
+CELL 0 0 2 0 0 2 3 1 0
+CELL 0 0 2 1 0 1 87 0 0
+CELL 0 0 2 2 0 2 4 1 0
+CELL 0 0 2 2 1 1 86 0 0
+CELL 0 0 2 2 2 2 1 -1 0
+CELL 0 -1 2 2 2 1 89 0 0
+CELL 0 -2 2 2 2 1 10 0 0
+CELL 0 -3 2 2 2 0 0 0 0

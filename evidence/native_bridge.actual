@@ -1,0 +1,4 @@
+HEXWORLD_ENTER semantic=HX87SEM3 dims=5 q2=25 epoch=0
+HX89 seed=1 cells=2
+NATIVE_RIP_BRIDGE return=42 bytes=6
+HX89 halt steps=2 heads=1 nodes=0 stack=0 hash=0821c0e7958844d4

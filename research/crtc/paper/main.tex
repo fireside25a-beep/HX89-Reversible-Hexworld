@@ -1,0 +1,162 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Response-Curvature Rigidity for Chiral Shear Transport},pdfauthor={Alex Moraru}}
+\usepackage{microtype}
+\title{Response-Curvature Rigidity for Chiral Shear Transport:\\An Exact Circle Classification and a Positive-Dissipation Counterexample}
+\author{Alex Moraru}
+\date{September 2026}
+
+\newcommand{\eH}{\eta_{\mathrm H}}
+\newcommand{\Ree}{\operatorname{Re}}
+\newcommand{\Immm}{\operatorname{Im}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We isolate a geometric rigidity criterion for a two-component chiral transport response.  Let the shifted complex viscosity be $Z(p)=\eta_s(p)+i\eta_{\mathrm H}(p)$ and let the achiral response be $Z_0=x_0>0$.  The circle having $0$ and $x_0$ as endpoints of a diameter is obeyed if and only if the real part of the actual inverse response is chirality independent, $\Ree[1/Z(p)]=\Ree[1/Z_0]$.  This statement is exact and does not require molecular chaos, a fixed susceptibility, or a single-relaxation-time closure.  For a $C_6$-covariant two-dimensional shear block, the commutant is $aI+bJ$; $C_6$ provides this two-coordinate form but does not impose the required rigidity of $a$.  We derive the corresponding response-curvature formula, reproduce the molecular-chaos chiral-FHP complex shear eigenvalue by exhaustive enumeration of all 64 local Boolean states, and verify the published shear/Hall circle exactly.  We also construct a stationary Ornstein--Uhlenbeck Green--Kubo model with strict positive dissipation and the same reduced rotational/reflection covariance for which $a$ drifts and the circle fails.  The result is therefore a classification with explicit witnesses on both sides, not a proof that the fully correlated FHP automaton belongs to the rigid class.
+\end{abstract}
+
+\section{Response-level circle theorem}
+Write
+\begin{equation}
+  Z=x+iy\ne0,\qquad Z_0=x_0>0.
+\end{equation}
+The anchored circle is
+\begin{equation}
+ (x-x_0/2)^2+y^2=(x_0/2)^2,
+ \label{eq:circle}
+\end{equation}
+which is equivalent to $\Delta=x^2+y^2-x_0x=0$.  Introduce the actual inverse response
+\begin{equation}
+ Q=\frac{1}{Z}=a+ib,
+ \qquad a=\frac{x}{x^2+y^2}.
+\end{equation}
+Then
+\begin{equation}
+ \frac{\Delta}{|Z|^2}=1-x_0\Ree\frac{1}{Z}.
+ \label{eq:master}
+\end{equation}
+At the achiral point $a_0=1/x_0$.  Hence Eq.~\eqref{eq:circle} holds pointwise if and only if
+\begin{equation}
+ \Ree\frac{1}{Z(p)}=a_0.
+ \label{eq:rigidity}
+\end{equation}
+This is the central rigidity criterion.  It is a statement about the measured response itself, so any chirality-dependent residue or susceptibility that may occur in a kinetic representation is already included.
+
+For $Q=a+ib$, inversion yields the exact defect
+\begin{equation}
+ \Delta=\frac{a_0-a}{a_0(a^2+b^2)}.
+ \label{eq:defect}
+\end{equation}
+Reactive changes of $b$ therefore move a point along the anchored circle when $a=a_0$, while drift of the real inverse response moves the point off that circle.
+
+\section{$C_6$ shear commutant}
+The traceless-symmetric shear tensor in two spatial dimensions has two independent components.  Under a physical rotation through angle $\theta$, this doublet rotates by $2\theta$.  Thus a generator of $C_6$ acts as a nontrivial $2\pi/3$ rotation $R$ on the shear doublet.  Solving $XR=RX$ for a real $2\times2$ matrix gives
+\begin{equation}
+ X=aI+bJ,\qquad J=\begin{pmatrix}0&-1\\1&0\end{pmatrix},\quad J^2=-I.
+ \label{eq:commutant}
+\end{equation}
+Reflection conjugates $J$ to $-J$.  With $d=p-p_0$, reflection covariance consequently permits $a(-d)=a(d)$ and $b(-d)=-b(d)$.  It does not require $a(d)$ to be constant.  The rigidity condition in Eq.~\eqref{eq:rigidity} is therefore additional to $C_6$ symmetry.
+
+\section{Response curvature}
+Let $a(d)$ be even, $b(d)$ odd, $a(0)=a_0>0$, $a''(0)=a_2$, and $b'(0)=b_1>0$.  For the planar response curve $Z(d)=1/[a(d)+ib(d)]$, direct differentiation gives the signed achiral curvature
+\begin{equation}
+ \kappa(0)=-2a_0-\frac{a_0^2a_2}{b_1^2}.
+ \label{eq:curvature}
+\end{equation}
+For the rigid class $a=a_0$, inversion of the vertical line $\Ree Q=a_0$ is the circle in Eq.~\eqref{eq:circle}, with radius $1/(2a_0)$ and signed curvature $-2a_0$ in the chosen orientation.
+
+Equation~\eqref{eq:curvature} detects leading quadratic dissipative drift.  It does not make a single local curvature value a global classifier: $a(d)=a_0+\epsilon d^4$ has $a''(0)=0$ and therefore the same achiral curvature as the rigid class, while Eq.~\eqref{eq:defect} is nonzero at every $d\ne0$.  The complete global criterion is Eq.~\eqref{eq:rigidity}.
+
+\section{Molecular-chaos FHP witness}
+Allocca et al.~derive for their zero-field chiral FHP automaton a complex shear collision eigenvalue
+\begin{equation}
+ \lambda=-\frac{\rho}{2}\left(1-\frac{\rho}{6}\right)^3
+ \left[1-i\frac{2\sqrt3}{3}\left(p-\frac12\right)\right]
+ \label{eq:lambda}
+\end{equation}
+and the kinematic viscosities
+\begin{align}
+ \eta&=\frac{1}{2\rho(1-\rho/6)^3}\frac{1}{1+\frac43(p-\frac12)^2}-\frac18,\\
+ \eta_{\mathrm H}&=-\frac{\sqrt3}{3\rho(1-\rho/6)^3}
+ \frac{p-\frac12}{1+\frac43(p-\frac12)^2}.
+\end{align}
+The repository independently enumerates all 64 six-bit local collision states, constructs the Bernoulli molecular-chaos collision map, differentiates it at homogeneous filling $n_\ell=\rho/6$, and Fourier-diagonalizes the resulting circulant Jacobian.  The shear eigenvalue agrees symbolically with Eq.~\eqref{eq:lambda}.
+
+Writing $D=\rho(1-\rho/6)^3$, $A=1/(2D)$ and $u=(2\sqrt3/3)(p-1/2)$ gives
+\begin{equation}
+ Z_B=\eta+\frac18+i\eta_{\mathrm H}=\frac{A}{1+iu}
+       =-\frac{1}{4\lambda^*}.
+\end{equation}
+Hence the molecular-chaos response lies identically on the anchored circle.  In addition to the symbolic proof, the code checks 9,595 exact rational grid points.
+
+\section{Positive-dissipation Green--Kubo counterexample}
+Consider the stationary Ornstein--Uhlenbeck process
+\begin{equation}
+ dX=-K(d)X\,dt+B(d)\,dW,
+\end{equation}
+with
+\begin{equation}
+ K(d)=[a_0+\epsilon d^2]I+cdJ,
+ \qquad a_0,\epsilon,c>0.
+\end{equation}
+Choose stationary covariance $C=A I$.  The Lyapunov equation is satisfied by
+\begin{equation}
+ BB^T=KC+CK^T=2A[a_0+\epsilon d^2]I>0.
+\end{equation}
+The symmetric part of $K$ is strictly positive, the eigenvalues have positive real part, and the process is stable.  The exact correlation integral is
+\begin{equation}
+ \int_0^\infty e^{-Kt}C\,dt=K^{-1}C.
+\end{equation}
+After dividing the known scalar covariance factor, the response is $Z=1/(a+ib)$ and
+\begin{equation}
+ \Delta(d)=-\frac{\epsilon d^2}
+ {a_0\{[a_0+\epsilon d^2]^2+c^2d^2\}},
+\end{equation}
+which is strictly negative for $d\ne0$.  Thus $C_6$/reflection covariance and positive dissipation do not protect the circle.
+
+\section{Spectral criterion and its limit}
+For an already isolated reduced shear block of the form Eq.~\eqref{eq:commutant}, the eigenvalues are $a\pm ib$.  Once the response residue/normalization relating that block to $Q=1/Z$ is known, Eq.~\eqref{eq:rigidity} is decidable algebraically from the reduced spectrum without time-domain simulation.
+
+This does not extend to a bare unordered spectrum of a larger generator.  Resolvent matrix elements also depend on spectral projectors and observable overlaps.  The code contains two similar matrices with identical eigenvalues but different $g^TL^{-1}g$ for a fixed $g$, providing an exact obstruction to the over-broad spectral claim.
+
+\section{Renormalization and Ward-identity status}
+At scale $\ell$, define $Q_\ell=a_\ell+ib_\ell$.  The rigid manifold is
+\begin{equation}
+ a_\ell(d)-a_\ell(0)=0.
+\end{equation}
+A scale flow $\partial_\ell a=\beta_a$ preserves this manifold if and only if it is tangent:
+\begin{equation}
+ \beta_a(d)-\beta_a(0)=0
+\end{equation}
+when the rigidity constraint holds.  $C_6$ alone does not imply this relation.
+
+The exact defect formula resembles a response constraint but is not, by itself, a Ward identity.  A genuine Ward interpretation requires an identified symmetry or conservation law that enforces the tangency condition.  Established Kubo/Ward literature supplies examples of such symmetry-generated identities, but no such microscopic protection has yet been derived here for the correlated chiral FHP automaton.
+
+\section{Two-dimensional Green--Kubo qualification}
+Long-time tails in two-dimensional FHP fluids make an unregulated thermodynamic-limit zero-frequency shear viscosity delicate.  The structural criterion can instead be applied at fixed finite size, frequency or renormalization scale:
+\begin{equation}
+ \Ree[1/Z_{L,\omega}(p)]=\Ree[1/Z_{L,\omega}(p_0)].
+\end{equation}
+Whether correlated chiral FHP satisfies this condition is therefore an open microscopic question. A model-specific proof of CRTC survival must establish the condition under the chosen limiting procedure; it cannot be inferred from the molecular-chaos circle alone.
+
+\section{Reproducibility}
+The accompanying repository contains exact symbolic tests, the 64-state collision enumeration, exact rational grid sweeps, the OU counterexample, a reduced-spectrum limitation witness, and a self-monitoring numerical layer.  The monitor can replace floating-point arithmetic by arbitrary precision when overflow, underflow or coefficient coalescence is detected, but it never modifies physical coefficients or projects failed points onto the circle.
+
+\begin{thebibliography}{9}
+\bibitem{allocca} A. A. Allocca et al., ``Odd fluids from chiral cellular automata,'' arXiv:2606.19431 (2026).
+\bibitem{epstein} J. M. Epstein and K. K. Mandadapu, Phys. Rev. E \textbf{101}, 052614 (2020).
+\bibitem{hargus} C. Hargus et al., J. Chem. Phys. \textbf{152}, 201102 (2020).
+\bibitem{banerjee} D. Banerjee et al., Nat. Commun. \textbf{8}, 1573 (2017).
+\bibitem{fruchart} M. Fruchart, M. Han, C. Scheibner, and V. Vitelli, arXiv:2202.02037 (2022).
+\bibitem{bradlyn} B. Bradlyn, M. Goldstein, and N. Read, Phys. Rev. B \textbf{86}, 245309 (2012).
+\bibitem{naitoh} T. Naitoh, M. H. Ernst, and J. W. Dufty, Phys. Rev. A \textbf{42}, 7187 (1990).
+\bibitem{eren} E. Eren, M. Fruchart, and V. Vitelli, Phys. Rev. E \textbf{114}, 024109 (2026).
+\end{thebibliography}
+
+\end{document}

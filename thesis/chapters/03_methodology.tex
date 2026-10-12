@@ -1,0 +1,64 @@
+\chapter{Methodology and Verification Framework}\label{ch:methodology}
+
+\section{Evidence hierarchy}
+The computational package is organized around a strict hierarchy of claims. A result is called an exact theorem only when it follows from stated definitions by algebra or finite exhaustive enumeration. A published model corollary is called exact only relative to the cited analytical formulas. A finite parameter sweep is evidence over its declared domain and is never used as a proof over a continuum. A physical statement about the fully correlated chiral FHP transport is called open unless a microscopic or renormalization argument establishes it.
+
+This hierarchy is implemented in \texttt{docs/THEOREM\_STATUS.md} and mirrored in \cref{app:claims}. The purpose is not stylistic. It prevents a verified identity such as $P F_+ P=F_-$ from being rhetorically promoted into a statement about a Green Kubo viscosity, and it prevents a large finite sweep from being described as exhaustive over continuous $p$ or density.
+
+\section{Canonical source of truth}
+The thesis is built against the repository tree itself. The machine source, Polyforms, tests, research notes, CRTC module, evidence certificates, scientific registry, and document sources live in one tree. The thesis does not maintain a second manually edited copy of central numerical counts.
+
+The script \texttt{thesis/tools/generate\_fragments.py} reads the transport and chiral certificates, verifies their counts against the declared finite domains in the executable tests, checks the entropy termination cells, counts the current CRTC unit tests, and emits \texttt{thesis/generated/canonical.tex}. The chapter text uses macros from that generated file. Consequently a change in the tested domain makes the generator fail or changes the thesis value in one place rather than leaving stale numbers scattered through prose.
+
+Equation references are handled semantically by LaTeX labels and \texttt{\textbackslash eqref} or \texttt{\textbackslash cref}. Equation numbers are not written by hand in cross references. A changed equation order therefore propagates automatically through the compiled document. The final consistency checker rejects undefined references and citations in the LaTeX log.
+
+\section{Independent implementations}
+A useful verification suite should not ask one implementation to certify itself. The repository therefore uses several independent paths.
+
+For the deterministic chiral law, \texttt{src/chiral\_law.c} is a standalone C certificate over the complete $2\times2$ torus, while \texttt{tests/test\_chiral\_law.py} independently implements the collision and streaming logic on larger tori and performs exact rational elimination of one body collision invariants. Agreement between the two paths is stronger evidence against an implementation mistake than repeating one executable with more seeds.
+
+For the transport circle, \texttt{tests/test\_transport\_circle.py} uses exact arithmetic in $\mathbb{Q}(\sqrt3)$ and is separate from the CRTC package. The CRTC module contains its own symbolic and rational tests, including an independently reconstructed $64$ state chiral FHP collision Jacobian.
+
+For the thesis, \texttt{thesis/tools/independent\_math\_audit.py} imports no CRTC implementation. It rederives the inverse response defect, the $C_6$ commutant, the published FHP circle and spectral inversion, the achiral curvature expression, the quartic false negative for local curvature, the Ornstein Uhlenbeck Green Kubo resolvent, and the same spectrum different overlap witness using SymPy from definitions.
+
+\section{Exact arithmetic and finite exhaustive domains}
+Floating point tolerances are avoided where exact arithmetic is available. The transport test represents numbers as pairs $(r,s)$ corresponding to $r+s\sqrt3$ with rational $r$ and $s$. This makes the circle and spectral identities exact equalities rather than residual tests.
+
+Two finite domains must be kept distinct. The HX89 transport test evaluates \HXTransportGridPoints{} parameter triples $(\rho,p,B)$, where density assumes eleven half integer values, chirality assumes sixty five rational values, and the weak field parameter assumes five values. The CRTC zero field grid evaluates \CRTCBoltzmannGridPoints{} rational $(\rho,p)$ points on a different domain. Both tests are exhaustive over their declared finite grids. Neither is a continuum proof. The continuum circle identity is instead proved symbolically by eliminating $u$.
+
+The C endpoint certificate is exhaustive in a different sense. A $2\times2$ periodic torus with six Boolean velocity channels per site has $24$ bits and therefore $2^{24}=\HXGlobalStates{}$ states. The program enumerates every state for both endpoint chiralities and verifies the stated reversor and correlation reciprocity identities. The operator proof then extends the echo identity to all integer times on any finite periodic torus because it depends on exact map composition rather than the size of the enumerated example.
+
+\section{Counterexample methodology}
+A structural classification is stronger when both sides are inhabited by explicit admissible models. The counterexample in \cref{ch:counterexample} was therefore chosen to satisfy properties that might otherwise be blamed for circle failure: stability, positive symmetric dissipation, a stationary covariance, reflection parity, two component rotational covariance, and an exact Green Kubo integral.
+
+No parameter is adjusted during a run to move a point back to the circle. The arithmetic monitor in the CRTC module may change numerical precision if binary64 inputs overflow, underflow, or collapse distinct decimal values to the same float. It may not change $a$, $b$, $Z$, or the model equations. This boundary is tested explicitly. Numerical recovery is therefore a reliability mechanism, not a physical feedback law.
+
+\section{Software verification}
+The repository uses compiler warnings, sanitizer builds, exact tests, and release evidence scripts. The canonical verification workflow includes:
+\begin{enumerate}[label=\alph*)]
+\item compilation of the assembly and C components;
+\item the complete HX89 test suite;
+\item AddressSanitizer and UndefinedBehaviorSanitizer runs on the C components;
+\item the CRTC symbolic, exact rational, spectral, monitor, and counterexample tests;
+\item the independent thesis symbolic audit;
+\item generated fragment consistency checks;
+\item prose and reference linting;
+\item LaTeX compilation with bibliography and glossary generation;
+\item PDF render inspection;
+\item a final manifest of file hashes.
+\end{enumerate}
+
+A passing software suite validates the implementation against its stated assumptions. It does not establish empirical truth beyond those assumptions. In particular, sanitizers can expose memory and undefined behavior defects but cannot prove a hydrodynamic closure.
+
+\section{Reproducibility and external traces}
+The evidence tree contains machine generated certificates as well as a set of preserved external CSV traces. The latter are intentionally excluded from proof because their generator, schema, units, ensemble, lattice size, run time, and estimator are not documented. The thesis does not infer missing metadata from column shapes. This is an example of a negative reproducibility rule: unverifiable material may be archived, but it does not support a quantitative claim.
+
+Every central result used positively in the thesis is instead tied to source that can be regenerated locally. The final repository records the verification transcript, environment information supplied by the existing audit, source hashes, and compiled document hashes. \Cref{app:repro} gives the commands and expected certificate lines.
+
+\section{Writing and claim control}
+The scientific prose follows the same separation as the code. Terms are defined before use when they are not standard in the immediate context. Present tense is used for mathematical facts and current interpretations, past tense for specific verification runs and cited historical results, and future tense only for proposed work. Promotional adjectives are excluded by a source lint. Unicode dash characters are rejected to avoid typography dependent ambiguities in generated source and rendered documents.
+
+The bibliography is deliberately bounded. A reference is retained when it supplies a foundational result, a directly related transport calculation, a response theory tool, or a specific limitation that affects the argument. The discussion does not use citation density as a substitute for explaining how prior work enters the logic.
+
+\section{Chapter conclusion}
+The method of this thesis is recursive in a precise sense: higher level claims are generated from or checked against lower level definitions and certificates, while independent derivations are used to detect self consistent mistakes. The approach cannot guarantee that every physical assumption is correct, but it makes the status and provenance of each claim inspectable. The next chapter applies that discipline to the microscopic chiral automaton before any continuum transport coefficient is introduced.

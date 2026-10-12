@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-label="HX89 Hexworld and response geometry">
+  <rect width="1200" height="420" fill="#000"/>
+  <g fill="none" stroke="#fff" stroke-width="2">
+    <rect x="38" y="38" width="1124" height="344" rx="8"/>
+    <path d="M70 107H1130M70 312H1130" opacity=".35"/>
+    <path d="M105 213H295M355 213H545M605 213H795"/>
+    <path d="M292 207l12 6-12 6M542 207l12 6-12 6M792 207l12 6-12 6"/>
+    <circle cx="975" cy="213" r="86"/>
+    <circle cx="889" cy="213" r="4" fill="#fff"/>
+    <circle cx="1061" cy="213" r="4" fill="#fff"/>
+    <path d="M889 213H1061M975 127V299" opacity=".35"/>
+    <path d="M930 170c29-30 63-30 92 0" opacity=".7"/>
+  </g>
+  <g fill="#fff" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">
+    <text x="70" y="83" font-size="34" font-weight="700">HX89 / HEXWORLD</text>
+    <text x="1130" y="82" font-size="15" text-anchor="end" opacity=".72">DETERMINISTIC MACHINE + RESPONSE GEOMETRY</text>
+    <text x="105" y="190" font-size="17">HX0</text><text x="105" y="236" font-size="13" opacity=".62">bootstrap</text>
+    <text x="355" y="190" font-size="17">HX89CORE</text><text x="355" y="236" font-size="13" opacity=".62">semantic image</text>
+    <text x="605" y="190" font-size="17">POLYFORMS</text><text x="605" y="236" font-size="13" opacity=".62">5D execution</text>
+    <text x="975" y="207" font-size="16" text-anchor="middle">CRTC</text><text x="975" y="228" font-size="12" text-anchor="middle" opacity=".68">inverse-response circle</text>
+    <text x="70" y="349" font-size="13" opacity=".72">Q² 25-state phase • Conway symbolic domain • signal bootstrap • reversible hex gas • opt-in native realization</text>
+  </g>
+</svg>

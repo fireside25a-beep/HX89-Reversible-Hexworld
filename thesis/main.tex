@@ -1,0 +1,121 @@
+\documentclass[11pt,a4paper,twoside]{report}
+\usepackage[a4paper,margin=40mm,headheight=15pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{newtxtext,newtxmath}
+\usepackage{microtype}
+\usepackage{amsmath,mathtools}
+\usepackage{booktabs,longtable,array}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Alex Moraru Thesis: Exact Microscopic Reciprocity and Response Rigidity in Chiral Hexagonal Lattice Gases},pdfauthor={Alex Moraru}}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage[acronym,toc,nonumberlist]{glossaries}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{setspace}
+\usepackage{siunitx}
+\makeglossaries
+\input{glossary}
+\input{generated/canonical}
+
+\definecolor{codegray}{gray}{0.96}
+\lstset{basicstyle=\ttfamily\small,backgroundcolor=\color{codegray},frame=single,breaklines=true,columns=fullflexible,showstringspaces=false}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,LO]{Alex Moraru Thesis}
+\fancyhead[RE,RO]{\thepage}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0.4pt}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+\onehalfspacing
+\graphicspath{{figures/}}
+
+\newcommand{\Z}{Z}
+\newcommand{\etal}{\textit{et al.}}
+\newcommand{\RePart}{\operatorname{Re}}
+\newcommand{\ImPart}{\operatorname{Im}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\dd}{\mathrm{d}}
+
+\begin{document}
+\begin{titlepage}
+\centering
+\vspace*{25mm}
+{\Large\bfseries Alex Moraru Thesis\par}
+\vspace{14mm}
+{\huge\bfseries Exact Microscopic Reciprocity and Response Rigidity in Chiral Hexagonal Lattice Gases\par}
+\vspace{12mm}
+{\Large A structural study of transport circles, inverse response geometry, and correlated counterexamples\par}
+\vfill
+{\large Alex Moraru\par}
+{\large Independent Researcher\par}
+\vspace{8mm}
+{\large September 2026\par}
+\end{titlepage}
+
+\pagenumbering{roman}
+\setcounter{page}{1}
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+This thesis studies a narrow structural question in two dimensional chiral transport: when does a pair consisting of dissipative shear viscosity and reactive Hall viscosity lie on an anchored circle as chirality varies, and what survives when molecular chaos is abandoned? The work separates three levels of statement that are often conflated. First, a deterministic six channel hexagonal lattice gas is defined exactly and its microscopic reciprocity properties are proved by operator identities and exhaustive finite state certificates. Second, the published Boltzmann transport coefficients of a chiral Frisch Hasslacher Pomeau model are rewritten as a complex response and shown to obey an exact circle relation. Third, the response geometry is detached from that closure and treated as a theorem about any nonzero complex response.
+
+For a measured response $Z(p)=x(p)+i y(p)$ with a positive parity symmetric anchor $Z(p_0)=x_0$, the anchored circle condition is
+\[
+ x^2+y^2=x_0x.
+\]
+The central classification proved here is
+\[
+ Z(p)\text{ lies on the anchored circle}
+ \quad\Longleftrightarrow\quad
+ \RePart\!\left[\frac{1}{Z(p)}\right]
+ =\RePart\!\left[\frac{1}{Z(p_0)}\right].
+\]
+If the inverse response is written $Q=a+i b$, the circle defect is exactly
+\[
+ \Delta=\frac{a_0-a}{a_0(a^2+b^2)}.
+\]
+Thus reactive drift is compatible with the circle, while dissipative drift is the unique mechanism for leaving this specific anchored circle within the two component response description. Sixfold rotational symmetry is shown to restrict an isolated shear kernel to $aI+bJ$, but it does not force $a$ to be constant. A local curvature formula quantifies quadratic dissipative drift, while an explicit quartic example proves that local curvature at the achiral point is not a complete global classifier.
+
+An analytically solvable stationary Ornstein Uhlenbeck process supplies a correlated Green Kubo counterexample with positive dissipation, reflection covariance, and the same two component symmetry form. Its defect agrees identically with the classification formula. This establishes a nonempty rigid class and a nonempty nonrigid class without tuning data to a circle. It also shows that symmetry and positivity alone do not protect the relation. The remaining physical question is model specific: whether the fully correlated chiral FHP automaton has a renormalized inverse shear response whose real part is chirality independent under a stated finite size, finite time, frequency, or scale prescription. The thesis provides a falsifiable criterion for that question, but does not claim its answer.
+
+\chapter*{Acknowledgments}
+\addcontentsline{toc}{chapter}{Acknowledgments}
+This work benefited from the published foundations of lattice gas hydrodynamics, linear response theory, and odd viscosity cited throughout the thesis. The computational package was developed so that each central claim can be traced to an executable definition, an exact algebraic check, or a stated external source. Any remaining errors are the responsibility of the author.
+
+\tableofcontents
+\listoffigures
+\listoftables
+\glsaddall
+\printglossary[type=\acronymtype,title=List of Abbreviations]
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input{chapters/01_introduction}
+\input{chapters/02_literature}
+\input{chapters/03_methodology}
+\input{chapters/04_microscopic}
+\input{chapters/05_kinetic_circle}
+\input{chapters/06_rigidity}
+\input{chapters/07_counterexample}
+\input{chapters/08_discussion}
+\input{chapters/09_conclusion}
+
+\appendix
+\input{appendices/A_proofs}
+\input{appendices/B_machine_definition}
+\input{appendices/C_reproducibility}
+\input{appendices/D_adversarial}
+\input{appendices/E_claim_matrix}
+
+\printglossary[title=Glossary]
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+\end{document}

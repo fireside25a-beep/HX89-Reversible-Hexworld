@@ -1,0 +1,46 @@
+PASS: HX0 ETCH fixed point
+PASS: memory echo and one-bit HX0 machine reconstruction
+PASS: PCM waveform to one-bit HX0 to live semantic image
+PASS: independent Bell 202 waveform, 1200 baud UART, start sync, CRC and noisy channel
+PASS: level, 125-baud FSK, Bell 202 and memory echo converge on canonical HX0 images
+PASS: independent hex-gas conservation/reverse and image Polyform through Bell, HX0 and HX89
+PASS: semantic right inverse for byte alphabet, Bell/HX0 transport, determinism and arena boundaries
+PASS: chiral reciprocity, dressed PT reversor, exact echo/correlation law, only 3 one-body linear invariants, independent larger-torus oracle
+PASS: exact transport-circle and spectral identities over 3575 rational (rho,p,B) points in Q(sqrt(3))
+PASS: entropy sparse-field regression seed=12345
+PASS: all 10 signed five-axis entropy exits terminate on explicit HALT cells
+PASS: HX0 decodes canonical HX87 seed and semantic image
+PASS: HX87 Seed B == Seed C fixed point
+PASS: extension-agnostic Polyform
+PASS: five-dimensional traversal
+PASS: symbolic Conway surreal operations
+PASS: all 25 Q² elementary states
+PASS: Q² recurrence qa'=(qa+qb+1)%5; qb'=(qb+qa+op)%5
+PASS: all 25 phase states, both VM directions, oracle, trace, retirement and inverse
+PASS: phase law persists across snapshot and resume
+PASS: VM target fitness, entropy-guided walk, early stop and snapshot persistence
+PASS: snapshot rejects invalid phase law
+PASS: Q² deterministic visual phase-space projection
+PASS: runtime self-modification
+PASS: multi-head frontier and collapse
+PASS: RIP-MIRROR reflected 5D live-code observation
+PASS: Polyform-originated x86-64 bytes executed by host RIP
+PASS: native bridge W^X/straight-line ABI gate
+PASS: native realization disabled by default
+PASS: seeded entropy replay
+PASS: 2D framebuffer output
+PASS: executable-state persistence
+PASS: snapshot length and arena bounds
+PASS: polyglot syntax executes under node
+PASS: polyglot syntax executes under python3
+PASS: polyglot syntax executes under ruby
+PASS: polyglot syntax executes under bash
+PASS: polyglot syntax executes under dash
+PASS: AArch64 and RV64 Stage-0 cross-assembly
+PASS: HX87SEM3 Hexworld entry gate
+PASS: extended lazy Conway expression universe
+PASS: Hexworld -> native accelerator -> Hexworld return
+PASS: native accelerator IR is context-bound
+PASS: non-executable host stack
+PASS: native lowering deterministic replay
+ALL TESTS PASS
