@@ -62,6 +62,8 @@ Consequences, under the stated assumptions:
 
 This is an algebraic theorem. It does **not** prove that a physical Green-Kubo kernel has `a(p)=a_*`, nor that a chosen `K` is unrenormalized or `p`-independent.
 
+The separate [`Lean transport module`](../lean/HX89/Transport.lean) proves the two-by-two commutant for a planar rotation with nonzero off-diagonal sine, the complex kernel defect identity (KD), and its zero-defect equivalence with the nonzero denominator and prefactor assumptions stated explicitly. It also proves a conditional differentiable beta-flow criterion and a positive parity-even nonflat witness. These formal results do not instantiate a correlated FHP Green-Kubo response.
+
 ## Tier II  -  exact corollary of a published analytical model
 
 Allocca et al., *Odd fluids from chiral cellular automata* (arXiv:2606.19431, 2026), derive the chiral-FHP Boltzmann/Chapman-Enskog transport coefficients. Rewriting those published zero-field expressions gives

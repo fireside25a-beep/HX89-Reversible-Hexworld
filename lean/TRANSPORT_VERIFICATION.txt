@@ -1,0 +1,12 @@
+HX89 transport formal layer verification
+Toolchain: Lean 4.30.0 x86_64-unknown-linux-gnu, commit d024af099ca4bf2c86f649261ebf59565dc8c622
+Mathlib: v4.30.0, commit c5ea00351c28e24afc9f0f84379aa41082b1188f
+Command: from pinned Mathlib Lake environment, lake env lean /absolute/path/to/lean/HX89/Transport.lean
+Exit status: 0
+Diagnostics: none
+Source SHA-256: 02af1fd7f5c4b91a7af5c4b2edafedd1ed5bf99eb27b411d0de0cb1f132cb4af
+Scope: C6-type planar commutant, complex kernel defect, zero-defect/flatness equivalence,
+       conditional differentiable beta-flow criterion, and positive parity-even nonflat witness.
+Not established: correlated chiral-FHP Green-Kubo flatness, concrete stochastic p-family,
+                 or an RG flow derived from the microscopic gas.
+The original Chiral.lean verification is recorded separately in VERIFICATION.txt.

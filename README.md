@@ -55,6 +55,7 @@ flowchart TD
 | One-body collision invariants | Exact rank-three linear space spanned by particle number and two momentum components for this collision table | [Theorem status](docs/THEOREM_STATUS.md), [rational elimination](tests/test_chiral_law.py) |
 | Chiral FHP transport circle | Exact molecular-chaos algebra from attributed published coefficients | [Transport circle](docs/TRANSPORT_CIRCLE.md), [attribution](docs/LITERATURE_BOUNDARY.md) |
 | Anchored response circle | Exact equivalence to constant `Re(1/Z)` for nonzero complex response with the stated positive real anchor; the restricted kernel form `Z=K/(a+ib)` makes this equivalent to constant `a` when `K` is chirality-independent | [CRTC theorem](research/crtc/docs/THEOREM.md), [kernel assumptions](docs/THEOREM_STATUS.md) |
+| Kernel defect and conditional scale flow | Lean 4.30.0 with pinned Mathlib proves the `C₆` commutant normal form, exact complex defect formula, zero-defect equivalence, conditional beta criterion, and a symmetry-compatible nonflat witness | [Transport Lean source](lean/HX89/Transport.lean), [formal scope](lean/README.md) |
 | Protection by symmetry and positive dissipation | Refuted in general by an exact stationary Ornstein-Uhlenbeck counterexample | [Counterexample](research/crtc/docs/COUNTEREXAMPLE.md) |
 | Circle survival in fully correlated chiral FHP Green-Kubo dynamics | **Open**; no protecting Ward identity is established | [Scientific status](SCIENTIFIC_STATUS.md), [claims](scientific/claims.json) |
 
@@ -95,7 +96,7 @@ make sanitize                        # sanitizer checks
 make audit                           # regenerate and audit release evidence
 make -C research/crtc verification   # research module; SymPy and mpmath
 make verify-all                      # full rebuild, research and PDFs; needs LaTeX
-(cd lean && lean HX89/Chiral.lean)    # Lean 4.30.0; independent formal layer
+(cd lean && lake build)              # Lean 4.30.0 + pinned Mathlib; both formal modules
 sha256sum -c MANIFEST.sha256         # packaged snapshot before local changes
 ```
 

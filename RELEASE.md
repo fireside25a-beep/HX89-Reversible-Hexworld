@@ -2,7 +2,7 @@
 
 HX89 is a deterministic machine that transports exact observations of a reversible lattice gas. The complete route is gas density image → canonical Polyform → Bell 202 audio → HX0 reconstruction → HX89 execution → identical image bytes on the certified fixture. A separate gas certificate establishes microscopic reciprocity and echo; the CRTC module classifies the condition needed for a correlated transport circle while leaving its physical survival open.
 
-The `lean/` directory contains a compiled Lean 4.30.0 proof of the local collision table and the conditional algebraic echo theorem. It does not replace the C/Python certificate for concrete torus indexing. `visualization/chiral_transport/` contains the original interactive Three.js/WebXR companion; `docs/assets/` contains the three original HX89 SVG diagrams.
+The `lean/` directory contains the Lean 4.30.0 local collision and conditional echo proof, plus a separate pinned-Mathlib proof of the response-kernel commutant, defect identity, flatness equivalence, conditional beta-flow criterion, and parity-even nonflat witness. Neither module replaces the C/Python certificate for concrete torus indexing or proves correlated Green–Kubo flatness. `visualization/chiral_transport/` contains the original interactive Three.js/WebXR companion; `docs/assets/` contains the three original HX89 SVG diagrams.
 
 ## Verified machine and transport results
 

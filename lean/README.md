@@ -1,22 +1,26 @@
-# HX89 Lean 4 proof layer
+# HX89 Lean proof layer
 
-This is a standalone Lean 4.30.0 source file with no Mathlib dependency:
+The two modules have different scope:
+
+| Module | Checked claims | Boundary |
+| --- | --- | --- |
+| [`HX89/Chiral.lean`](HX89/Chiral.lean) | The 64-state collision table, local conservation and symmetries, and an all-time echo theorem conditional on six streaming/index equations | Does not instantiate the concrete torus or Polyform VM |
+| [`HX89/Transport.lean`](HX89/Transport.lean) | The commutant of a nontrivial planar rotation, the complex kernel defect identity, zero-defect/flatness equivalence, a conditional beta-flow criterion, and a positive parity-even nonflat witness | Does not derive a correlated Green–Kubo response from the microscopic gas |
+
+`Chiral.lean` uses Lean 4.30.0 alone. `Transport.lean` uses Mathlib pinned by [`lakefile.lean`](lakefile.lean) and [`lake-manifest.json`](lake-manifest.json) to the compatible v4.30.0 release. On Linux, with the pinned Lean toolchain installed:
 
 ```sh
 cd lean
-lean HX89/Chiral.lean
+lake exe cache get
+lake build
 ```
 
-The source [`HX89/Chiral.lean`](HX89/Chiral.lean) compiles without `sorry`, `admit`, or added axioms. `by decide` closes finite universal propositions over every one of the 64 local six-bit states. Its table is the rule in `src/chiral_law.c`: positive chirality `9 → 18 → 36 → 9`, negative chirality its inverse, and `21 ↔ 42` for either handedness. It proves both local inverse directions, particle and axial momentum conservation, reflection and velocity involutions, mirror/chirality conjugacy, and velocity/collision compatibility.
+The Mathlib cache is a substantial download. [`TRANSPORT_VERIFICATION.txt`](TRANSPORT_VERIFICATION.txt) records the version, source digest and local compiler result. The original `Chiral.lean` verification is recorded separately in `VERIFICATION.txt`.
 
-The second section formalizes the split-step implication. An `EndpointSystem` supplies five maps (`cPlus`, `cMinus`, `stream`, `unstream`, `mirrorVelocity`) and six explicit equations for their inverses and symmetries. Under those assumptions, Lean derives:
+## Exact transport assumptions
 
-- `theta_involution`: `Θ² = I`;
-- `dressed_reversor`: `Θ F Θ = F⁻¹`;
-- `echo`: `Θ Fᵗ Θ Fᵗ = I` for every natural `t`.
+The rotation is represented as `[[u,-v],[v,u]]` with `v ≠ 0`. The commutant result is direct matrix algebra and includes the shear representation of the nontrivial C₆ rotation. For the response, `Z = K/(a+i b)`, the anchor is nonzero and `a²+b² ≠ 0`. The circle-membership equivalence additionally requires `K ≠ 0`. These are hypotheses, not conclusions from microscopic FHP dynamics.
 
-The abstract `EndpointSystem` **is not instantiated here for the concrete toroidal lattice**. In particular, Lean has not checked its spatial index arithmetic, full C program, Polyform VM, or 2²⁴-state torus enumeration. The C certificate and Python oracle test the concrete implementation independently. The all-size mathematical derivation and its physical limits are in [`docs/CHIRAL_RECIPROCITY.md`](../docs/CHIRAL_RECIPROCITY.md).
+The beta theorem assumes differentiable scale trajectories, equal beta functions at every scale, and initial flatness. It proves preservation under those assumptions. The parity-even positive counterexample demonstrates why reflection symmetry and positivity cannot supply flatness by themselves.
 
-Neither the stochastic continuous-`p` model nor the conjectured correlated Green–Kubo transport rigidity is proved by this Lean file.
-
-The actual local compile result and toolchain version for this release are recorded in [`VERIFICATION.txt`](VERIFICATION.txt). The official [Lean installation guide](https://lean-lang.org/install/manual/) describes how to obtain the pinned toolchain.
+`DissipativeFlatness` is a parameterized mathematical property with **no theorem that the correlated FHP model satisfies it**. That physical question needs a specified stochastic family, Green–Kubo projection, finite-size/time prescription and limit. The C program checks deterministic endpoint chiralities only. No `sorry`, `admit`, custom axiom, or placeholder proof is used in either module.

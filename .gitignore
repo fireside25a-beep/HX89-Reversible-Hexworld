@@ -1,4 +1,5 @@
 build/
+lean/.lake/
 thesis/build/
 research/crtc/.pytest_cache/
 research/crtc/build/

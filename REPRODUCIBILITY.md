@@ -12,7 +12,7 @@ make verify-all
 
 The target performs a clean machine rebuild, the complete executable test suite, sanitizer checks, repository audit, the CRTC symbolic and numerical verification suite, scientific-registry regeneration, document compilation, independent mathematics audit, prose checks, and the cross-document consistency audit.
 
-The separately pinned Lean layer is checked with `(cd lean && lean HX89/Chiral.lean)` using Lean 4.30.0. The root `verify-all` target does not invoke Lean; see `lean/README.md` for its theorem scope and concrete-model boundary.
+The separately pinned Lean layer is checked with `(cd lean && lake build)` using Lean 4.30.0 and the Mathlib dependency locked in `lean/lake-manifest.json`. Fetch the imported Mathlib cache as described in `lean/README.md`. The root `verify-all` target does not invoke Lean; its microscopic and transport scope remains separate from the two formal modules.
 
 The packaged verification summary is `evidence/verification/FINAL_VERIFICATION.txt`; the captured full run is `evidence/verification/VERIFY_ALL_FINAL.txt`.
 
